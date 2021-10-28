@@ -1,0 +1,15 @@
+
+.box.data-v-a1de0cc8{
+	width: 95%;
+	background: #FFFFFF;
+	border-radius: 3px;
+	padding: 20rpx;
+	margin: 20rpx auto;
+}
+.box view.data-v-a1de0cc8{
+	line-height: 60rpx;
+}
+.biaoti.data-v-a1de0cc8{
+	font-weight: 600;
+}
+

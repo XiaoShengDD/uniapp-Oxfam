@@ -1,0 +1,15 @@
+
+.nodata{
+		text-align: center;
+		padding-top: 190rpx;
+}
+.nodata-icon{
+		width: 404rpx;
+		height: 294rpx;
+}
+.nodata-tips{
+		margin-top: 40rpx;
+		font-size: 28rpx;
+		color: #999;
+}
+

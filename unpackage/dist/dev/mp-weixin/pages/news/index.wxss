@@ -1,0 +1,62 @@
+
+.chongzhi.data-v-452e6662{
+	/* FF775F  FF5050  */
+	background: -webkit-linear-gradient(80deg,#FF775F 0%,#FF5050 100%);
+	background: linear-gradient(10deg,#FF775F 0%,#FF5050 100%);
+	border-radius: 14rpx;
+	color: #ffffff;
+	font-size: 30rpx;
+	font-weight: 500;
+	text-align: center;
+	box-shadow: 5rpx 5rpx 10rpx #FF775F;
+	margin-right: 20rpx;
+	padding: 0 30rpx;
+}
+.tixian.data-v-452e6662{
+	background: -webkit-linear-gradient(80deg,#6BCF00 0%,#73DE00 100%);
+	background: linear-gradient(10deg,#6BCF00 0%,#73DE00 100%);
+	border-radius: 14rpx;
+	color: #ffffff;
+	font-size: 30rpx;
+	font-weight: 500;
+	text-align: center;
+	box-shadow: 5rpx 5rpx 10rpx #73DE00;
+	padding: 0 30rpx;
+}
+.zongshu.data-v-452e6662{
+	color: #FF2626;
+	font-weight: 600;
+}
+.box.data-v-452e6662{
+	width: 92%;
+	background: #FFFFFF;
+	border-radius: 12px;
+	padding: 20rpx 30rpx;
+	margin: 40rpx auto 0;
+}
+.box view.data-v-452e6662{
+	line-height: 60rpx;
+}
+.biaoti.data-v-452e6662{
+	font-weight: 600;
+}
+.shang.data-v-452e6662{
+	border-bottom: 2rpx solid #EDEDED;
+	padding-bottom: 20rpx;
+}
+.shangconteny.data-v-452e6662{
+	line-height: 50rpx;
+}
+.shangconteny image.data-v-452e6662{
+	width: 50rpx;
+	height: 50rpx;
+	line-height: 50rpx;
+	margin-right: 20rpx;
+}
+.jiayi.data-v-452e6662{
+	color: #FF2626;
+}
+.xia.data-v-452e6662{
+	padding-top: 30rpx;
+}
+

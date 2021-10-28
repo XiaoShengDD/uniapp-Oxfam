@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "募捐",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "u-no-network": "/node-modules/uview-ui/components/u-no-network/u-no-network",
+    "u-input": "/node-modules/uview-ui/components/u-input/u-input",
+    "u-upload": "/node-modules/uview-ui/components/u-upload/u-upload"
+  }
+}

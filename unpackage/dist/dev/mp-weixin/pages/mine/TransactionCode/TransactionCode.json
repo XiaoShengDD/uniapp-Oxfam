@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "交易密码",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "u-no-network": "/node-modules/uview-ui/components/u-no-network/u-no-network"
+  }
+}

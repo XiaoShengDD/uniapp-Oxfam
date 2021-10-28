@@ -1,0 +1,63 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/news/index",
+    "pages/zixun/index",
+    "pages/mine/index",
+    "pages/mine/InviteFriends/InviteFriends",
+    "pages/mine/ChangePassword/ChangePassword",
+    "pages/mine/TransactionCode/TransactionCode",
+    "pages/mine/MessageBoard/MessageBoard",
+    "pages/login/login",
+    "pages/login/reg/reg",
+    "pages/news/newdel/newdel",
+    "pages/news/jiaoyi/jiaoyi",
+    "pages/news/chongzhi/chongzhi",
+    "pages/news/tixian/tixian",
+    "pages/index/tuandui/tuandui",
+    "pages/index/mujuan/mujuan",
+    "pages/index/mujuanj/mujuanj"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "Oxfam",
+    "navigationBarBackgroundColor": "#fff",
+    "backgroundColor": "#FFFFFF"
+  },
+  "tabBar": {
+    "color": "#BBBBBB",
+    "selectedColor": "#6BCF00",
+    "backgroundColor": "#FFFFFF",
+    "boxShadow": "0px 2px 2px 0px rgba(0,0,0,0.05)",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "static/img/images/01.png",
+        "selectedIconPath": "static/img/images/1.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/news/index",
+        "iconPath": "static/img/images/02.png",
+        "selectedIconPath": "static/img/images/2.png",
+        "text": "交易"
+      },
+      {
+        "pagePath": "pages/zixun/index",
+        "iconPath": "static/img/images/03.png",
+        "selectedIconPath": "static/img/images/3.png",
+        "text": "咨讯"
+      },
+      {
+        "pagePath": "pages/mine/index",
+        "iconPath": "static/img/images/04.png",
+        "selectedIconPath": "static/img/images/4.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "usingComponents": {
+    "nodata": "/components/nodata"
+  }
+}

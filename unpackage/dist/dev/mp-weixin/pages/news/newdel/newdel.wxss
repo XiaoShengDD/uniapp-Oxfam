@@ -1,0 +1,21 @@
+
+page{
+	background-color: #fff!important;
+}
+
+
+.container.data-v-b4afa9e8{
+	padding: 60rpx;
+}
+.title.data-v-b4afa9e8{
+	font-weight: 600;
+}
+.title.data-v-b4afa9e8,.time.data-v-b4afa9e8{
+	text-align: center;
+	margin: 0 0 30rpx;
+}
+.content.data-v-b4afa9e8{
+	line-height: 50rpx;
+	font-family: PingFangSC-Regular, PingFang SC;
+}
+

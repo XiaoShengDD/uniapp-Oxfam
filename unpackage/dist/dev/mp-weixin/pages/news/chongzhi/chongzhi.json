@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "充值",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "u-no-network": "/node-modules/uview-ui/components/u-no-network/u-no-network",
+    "u-upload": "/node-modules/uview-ui/components/u-upload/u-upload"
+  }
+}

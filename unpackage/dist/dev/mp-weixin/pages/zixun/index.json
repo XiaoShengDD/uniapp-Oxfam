@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "咨讯",
+  "usingComponents": {
+    "u-no-network": "/node-modules/uview-ui/components/u-no-network/u-no-network"
+  }
+}

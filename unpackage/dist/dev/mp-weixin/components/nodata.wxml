@@ -1,0 +1,1 @@
+<view><view class="nodata"><image class="nodata-icon" src="/static/img/images/nodata.png"></image><view class="nodata-tips">{{title}}</view></view></view>

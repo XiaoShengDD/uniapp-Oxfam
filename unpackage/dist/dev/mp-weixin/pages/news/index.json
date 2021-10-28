@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "交易",
+  "usingComponents": {
+    "u-no-network": "/node-modules/uview-ui/components/u-no-network/u-no-network",
+    "u-count-to": "/node-modules/uview-ui/components/u-count-to/u-count-to"
+  }
+}
