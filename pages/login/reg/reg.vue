@@ -4,8 +4,8 @@
 		<view class="login_phone" @click="carno.show = false">
 			<view class="login-phone-main">
 				<view class="login-phone-from display_flex align_item">
-					<view class="phone">手机号：</view>
-					<u-input v-model="mobile" type="number" maxlength="11" placeholder="请输入手机号" :border="false" />
+					<view class="phone">邮箱：</view>
+					<u-input v-model="mobile" type="text" placeholder="请输入邮箱" :border="false" />
 				</view>
 				<view class="login-phone-from display_flex align_item">
 					<view class="pas">验证码：</view>
@@ -169,20 +169,20 @@
 
 			// 初始化方法
 			async userregister() {
-				if (this.mobile.length != 11) {
-					this.$utils.toast('手机号不正确', 'top');
+				if (this.mobile == "") {
+					this.$utils.toast('邮箱不得为空', 'top');
 					return false;
 				}
-				if (!/^1[3456789]\d{9}$/.test(this.mobile)) {
-					this.$utils.toast('手机号码有误，请重填', 'top');
+				
+				if (!/^\w+@[a-z0-9]+\.[a-z]{2,4}$/.test(this.mobile)) {
+					this.$utils.toast('请输入正确邮箱地址', 'top');
 					return;
 				}
 				//获取验证码
-
-				if (this.code == '') {
-					this.$utils.toast('请输入验证码', 'top');
-					return
-				}
+				// if (this.code == '') {
+				// 	this.$utils.toast('请输入验证码', 'top');
+				// 	return
+				// }
 				if (this.name == '') {
 					this.$utils.toast('请输入昵称', 'top');
 					return

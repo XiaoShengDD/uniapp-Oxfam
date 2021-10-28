@@ -84,6 +84,13 @@
 
 		},
 		{
+			"path": "pages/login/resetPassword/resetPassword",
+			"style": {
+				"navigationBarTitleText": "重置密码",
+				"enablePullDownRefresh": false
+			}
+		},
+		{
 			"path": "pages/login/reg/reg",
 			"style": {
 				"navigationBarTitleText": "注册",
