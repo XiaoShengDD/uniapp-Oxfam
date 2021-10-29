@@ -177,10 +177,9 @@
 			width: 200upx;
 			margin: 0 0 20upx;
 		}
-
-		view {
-			font-size: 50upx;
-			margin-bottom: 30upx;
+		view{
+			font-size: 32upx;
+			margin-bottom: 88upx;
 		}
 	}
 
