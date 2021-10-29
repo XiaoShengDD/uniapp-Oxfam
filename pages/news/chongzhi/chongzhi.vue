@@ -34,7 +34,7 @@
 			<image class="erweima" :src="dizhi.recharge_image_url" @click="saveImgToLocal(dizhi.recharge_image_url)" mode=""></image>
 			<view class="display_flex flex_start">
 				<view class="color_222 font_size_28 over_one" style="max-width: 80%;margin-right: 20upx;">{{dizhi.recharge_address}}</view>
-				<view class="" style="color: #6CD100;" @click="copyTap(dizhi.recharge_address)">复制</view>
+				<view class="" style="color: #0046ae;" @click="copyTap(dizhi.recharge_address)">复制</view>
 			</view>
 		</view>
 
@@ -225,9 +225,9 @@
 	}
 
 	.activeclass {
-		background: #6CD100 !important;
+		background: #0046ae !important;
 		color: #fff !important;
-		border: 1px solid #6CD100 !important;
+		border: 1px solid #0046ae !important;
 	}
 
 	.container {
