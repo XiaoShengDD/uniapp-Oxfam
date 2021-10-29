@@ -11,10 +11,10 @@
 					交易记录
 				</view>
 			</view>
-			<!-- FF775F  FF5050 -->
+			<!-- 4C00AF  4C00AF -->
 			<view class="xia display_flex flex_between">
 				<view class="zongshu font_size_28" >
-					 <u-count-to color="#FF2626" :start-val="30" :end-val="item.coin_value" :decimals="2"></u-count-to>
+					 <u-count-to color="#4200A8" :start-val="30" :end-val="item.coin_value" :decimals="2"></u-count-to>
 					{{item.coin_name}}
 				</view>
 			</view>
@@ -91,29 +91,29 @@
 
 <style scoped>
 	.chongzhi{
-		/* FF775F  FF5050  */
-		background: linear-gradient(10deg,#FF775F 0%,#FF5050 100%);
+		/* 4C00AF  4C00AF  */
+		background: linear-gradient(10deg,#4C00AF 0%,#4C00AF 100%);
 		border-radius: 14upx;
 		color: #ffffff;
 		font-size: 30upx;
 		font-weight: 500;
 		text-align: center;
-		box-shadow: 5upx 5upx 10upx #FF775F;
+		box-shadow: 5upx 5upx 10upx #4C00AF;
 		margin-right: 20upx;
 		padding: 0 30upx;
 	}
 	.tixian{
-		background: linear-gradient(10deg,#6BCF00 0%,#73DE00 100%);
+		background: linear-gradient(10deg,#0046AE 0%,#0046AE 100%);
 		border-radius: 14upx;
 		color: #ffffff;
 		font-size: 30upx;
 		font-weight: 500;
 		text-align: center;
-		box-shadow: 5upx 5upx 10upx #73DE00;
+		box-shadow: 5upx 5upx 10upx #0046AE;
 		padding: 0 30upx;
 	}
 	.zongshu{
-		color: #FF2626;
+		color: #4200A8;
 		font-weight: 600;
 	}
 	.box{
@@ -145,7 +145,7 @@
 		
 	}
 	.jiayi{
-		color: #FF2626;
+		color: #4200A8;
 	}
 	.xia{
 		padding-top: 30upx;

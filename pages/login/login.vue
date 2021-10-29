@@ -2,7 +2,7 @@
 	<view class="content">
 		<view class="logo">
 			<image src="/static/img/images/logo.png" mode=""></image>
-			<view class="" style="color:#6BCF01 ;">乐施会</view>
+			<view class="" style="color:#0046AE ;">乐施会</view>
 		</view>
 		<view class="uni-form-item uni-column">
 			<input class="uni-input" placeholder="请输入邮箱" @input="aaa()" v-model="formdata.phone" />
@@ -173,8 +173,8 @@
 		text-align: center;
 
 		image {
-			height: 200upx;
-			width: 200upx;
+			height: 120upx;
+			width: 120upx;
 			margin: 0 0 20upx;
 		}
 		view{

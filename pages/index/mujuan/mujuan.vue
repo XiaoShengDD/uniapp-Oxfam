@@ -24,7 +24,7 @@
 						+{{item.jiequ}}{{item.donation_type}}
 					</view>
 				</view>
-				<!-- FF775F  FF5050 -->
+				<!-- 4C00AF  4C00AF -->
 				<view class="xia display_flex flex_between">
 					<view class="zongshu font_size_28" >
 						{{item.create_time}}

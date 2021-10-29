@@ -12,7 +12,7 @@
 		</view>
 		<u-popup v-model="show" mode="center" width="500rpx" height="400upx" @change="radioGroupChange">
 			<u-radio-group v-model="value" width="100%">
-				<u-radio active-color="#6BCF00" @change="radioChange" v-for="(item, index) in list" :key="index" :name="item.withdrawal_address_value">
+				<u-radio active-color="#0046AE" @change="radioChange" v-for="(item, index) in list" :key="index" :name="item.withdrawal_address_value">
 					<view style="word-wrap:break-word!important;width: 400upx;" class="over_one">{{item.withdrawal_address_value}}</view>
 				</u-radio>
 			</u-radio-group>

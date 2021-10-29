@@ -41,7 +41,7 @@
 					</view>
 				</view>
 				<view class="">
-					<text style="color: #FF0F00;" v-if="item.wallet_record_type == 'Withdrawal'">-{{item.wallet_record_value}}{{item.coin_name}}</text>
+					<text style="color: #4300A9;" v-if="item.wallet_record_type == 'Withdrawal'">-{{item.wallet_record_value}}{{item.coin_name}}</text>
 					<text style="color: #64C100;" v-else>+{{item.wallet_record_value}}{{item.coin_name}}</text>
 				</view>
 
