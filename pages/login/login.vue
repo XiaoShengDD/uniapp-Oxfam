@@ -2,7 +2,7 @@
 	<view class="content">
 		<view class="logo">
 			<image src="/static/img/images/logo.png" mode=""></image>
-			<view class="" style="color:#6BCF01 ;">乐施会</view>
+			<view class="" style="color:#0046AE ;">乐施会</view>
 		</view>
 		<view class="uni-form-item uni-column">
 			<input type="tel" class="uni-input" maxlength="11" placeholder="请输入手机号" @input="aaa" v-model="formdata.phone"/>
@@ -154,13 +154,13 @@
 		text-align: center;
 
 		image {
-			height: 200upx;
-			width: 200upx;
+			height: 120upx;
+			width: 120upx;
 			margin: 0 0 20upx;
 		}
 		view{
-			font-size: 50upx;
-			margin-bottom: 30upx;
+			font-size: 32upx;
+			margin-bottom: 88upx;
 		}
 	}
 

@@ -27,7 +27,7 @@
 						{{item.wallet[0].coin_value}} {{tameinfo.teamCoin[0].coin_name}}
 					</view>
 				</view>
-				<!-- FF775F  FF5050 -->
+				<!-- 4C00AF  4C00AF -->
 				<view class="xia display_flex flex_between">
 					<view class="zongshu font_size_28" >
 						{{item.wallet[0].create_time}}

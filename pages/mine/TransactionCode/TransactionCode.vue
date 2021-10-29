@@ -89,7 +89,7 @@
 		font-weight: 400;
 		color: #FFFFFF;
 		line-height: 36upx;
-		background-color:#6BCF00;
+		background-color:#0046AE;
 		padding: 10upx 20upx;
 	}
 
@@ -102,7 +102,7 @@
 		margin: 206rpx auto 0;
 		height: 80rpx;
 		width: 584rpx;
-		background: linear-gradient(10deg,#6BCF00 0%,#73DE00 100%);
+		background: linear-gradient(10deg,#0046AE 0%,#0046AE 100%);
 		border-radius: 44upx;
 		color: #ffffff;
 		font-size: 34upx;

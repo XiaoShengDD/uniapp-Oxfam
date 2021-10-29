@@ -285,7 +285,7 @@
 		font-size: 40upx;
 		color: #fff;
 		text-align: center;
-		color: #6BCF01;
+		color: #0046AE;
 		
 	}
 
