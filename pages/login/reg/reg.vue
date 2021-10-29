@@ -148,15 +148,18 @@
 
 
 			getVerCode() {
-				if (!/^1[3456789]\d{9}$/.test(this.mobile)) {
-					this.$utils.toast('手机号码有误，请重填', 'top');
-					return;
-				}
-				//获取验证码
+				
 				if (this.mobile.length != 11) {
-					this.$utils.toast('手机号不正确', 'top');
+					this.$utils.toast('邮箱不正确', 'top');
 					return false;
 				}
+				
+				if (!/^1[3456789]\d{9}$/.test(this.mobile)) {
+					this.$utils.toast('请输入邮箱', 'top');
+					return;
+				}
+				
+				
 				////console.log("获取验证码")
 				this.Captcha()
 			},

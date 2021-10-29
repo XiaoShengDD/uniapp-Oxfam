@@ -21,6 +21,7 @@
 		</view>
 		<view class="links">
 			<view class="link-highlight" @tap="gotoRegistration">还没账号，去注册</view>
+			<view class="link-highlight" @tap="gotoResetPassword">忘记密码</view>
 		</view>
 	</view>
 </template>
@@ -143,6 +144,11 @@
 					url: 'reg/reg'
 				});
 			},
+			gotoResetPassword(){
+				uni.navigateTo({
+					url: 'resetPassword/resetPassword'
+				});
+			}
 
 		}
 	}
@@ -198,11 +204,12 @@
 	}
 
 	.links {
-		text-align: center;
 		margin-top: 40upx;
 		font-size: 26upx;
 		color: #999;
-
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
 		view {
 			display: inline-block;
 			vertical-align: top;
