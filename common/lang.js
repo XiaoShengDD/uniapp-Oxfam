@@ -1,6 +1,5 @@
 export default {
 	"en-US": {
-		index:{
 			home: 'home',
 			trade: "trade",
 			consult: "consult",
@@ -23,13 +22,21 @@ export default {
 			"pages-mine-dizhi-dizhi":"Common address",
 			"pages-mine-dizhi-tianjia-tianjia":"Add Address",
 			"pages-index-mujuan-mujuan":"Donation details",
-		}
 		
+			// login
+			"P_Email":"Please enter your email address",
+			"P_Account":"Select account",
+			"P_Password":"Please enter your password",
+			"L_Register":"Don't have an account yet, go and register",
+			"L_Forgotten":"Forgot your password?",
+			"L_t_Email":"Please enter your correct email address",
+			"L_T_Account":"Please enter your chosen login",
+			"L_T_Success":"Sign in successfully",
+			"Unregistered":"You are not yet registered, please go to Register",
 
 	},
 	"en-CN": {
 		
-		index:{
 			home: '首页',
 			trade: "交易",
 			consult: "咨询",
@@ -52,7 +59,18 @@ export default {
 			"pages-mine-dizhi-dizhi":"常用地址",
 			"pages-mine-dizhi-tianjia-tianjia":"添加地址",
 			"pages-index-mujuan-mujuan":"募捐明细",
-		}
+			
+			// login
+			"P_Email":"请输入邮箱",
+			"P_Account":"选择账号",
+			"P_Password":"请输入密码",
+			"L_Register":"还没账号,去注册",
+			"L_Forgotten":"忘记密码",
+			"L_t_Email":"请输入正确的邮箱地址",
+			"L_T_Account":"请输入选择登录账号",
+			"L_T_Success":"登录成功",
+			"Unregistered":"您还未注册，请前往注册",
+			
 	
 	}
 }

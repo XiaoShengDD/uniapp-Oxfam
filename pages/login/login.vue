@@ -6,23 +6,23 @@
 			<view class="" style="color:#0046AE ;">乐施会</view>
 		</view>
 		<view class="uni-form-item uni-column">
-			<input class="uni-input" placeholder="请输入邮箱" @input="aaa" v-model="formdata.phone" />
+			<input class="uni-input" :placeholder="$t('P_Email')" @input="aaa" v-model="formdata.phone" />
 		</view>
 		<view class="uni-form-item uni-column">
-			<input type="text" class="uni-input" name="" placeholder="选择账号" disabled="" @click="xuanze"
+			<input type="text" class="uni-input" name="" :placeholder="$t('P_Account')" disabled="" @click="xuanze"
 				v-model="shenfen" />
 			<u-select v-model="show" :list="list" @confirm="confirm"></u-select>
 		</view>
 		<view class="uni-form-item uni-column">
-			<input type="password" class="uni-input" name="" placeholder="请输入密码" v-model="formdata.password" />
+			<input type="password" class="uni-input" name="" :placeholder="$t('P_Password')" v-model="formdata.password" />
 		</view>
 
 		<view class="btnss" @click="submit">
-			登录
+			{{ $t("pages-login-login") }}
 		</view>
 		<view class="links">
-			<view class="link-highlight" @tap="gotoRegistration">还没账号，去注册</view>
-			<view class="link-highlight" @tap="gotoResetPassword">忘记密码</view>
+			<view class="link-highlight" @tap="gotoRegistration">{{ i18n.L_Register }}</view>
+			<view class="link-highlight" @tap="gotoResetPassword">{{ i18n.L_Forgotten }}</view>
 		</view>
 	</view>
 </template>
@@ -40,6 +40,10 @@
 					"password": "",
 					"type": ''
 				},
+				messages:{
+					P_Email:"",
+					P_Account:""
+				}
 			}
 		},
 
@@ -67,7 +71,7 @@
 					this.lang = "English"
 					this._i18n.locale = 'en-CN'
 				}
-				this.$router.go(0)
+				// this.$router.go(0)
 			},
 			aaa(e){
 				if(!/^\w+@[a-z0-9]+\.[a-z]{2,4}$/.test(e.detail.value)){
@@ -76,18 +80,19 @@
 			},
 
 			xuanze() {
-
+					
 				if (this.formdata.phone == "") {
-					this.$utils.toast('请输入邮箱')
+					this.$utils.toast(this._i18n.t('P_Email'))
+					
 				} else {
 					if(!/^\w+@[a-z0-9]+\.[a-z]{2,4}$/.test(this.formdata.phone)){
-						this.$utils.toast('请输入正确的邮箱地址')
+						this.$utils.toast(this._i18n.t('L_t_Email'))
 						return false
 					}else{
 						if (this.list.length > 0) {
 							this.show = true
 						} else {
-							this.$utils.toast('您还未注册，请前往注册')
+							this.$utils.toast(this._i18n.t('Unregistered'))
 						}
 					}
 
@@ -126,22 +131,22 @@
 			// 初始化方法
 			async submit() {
 				if (this.formdata.phone == "") {
-					this.$utils.toast('请输入邮箱')
+					this.$utils.toast(this._i18n.t('P_Email'))
 					return false
 				} else {
 					if (!/^\w+@[a-z0-9]+\.[a-z]{2,4}$/.test(this.formdata.phone)) {
-						this.$utils.toast('请输入正确的邮箱地址')
+						this.$utils.toast(this._i18n.t('L_t_Email'))
 						return false
 					}
 				}
 
 
 				if (this.formdata.password == "") {
-					this.$utils.toast('请输入密码')
+					this.$utils.toast(this._i18n.t('P_Password'))
 					return false
 				}
 				if (this.shenfen == "") {
-					this.$utils.toast('请输入选择登录账号')
+					this.$utils.toast(this._i18n.t('L_T_Account'))
 					return false
 				}
 				let data = {
@@ -152,7 +157,7 @@
 
 				const res = await this.$appserve.userlogin(data);
 				if (res.code == 0) {
-					this.$utils.toast('登录成功')
+					this.$utils.toast(this._i18n.t('L_T_Success'))
 					uni.setStorageSync('rescodeUserInfo', res.data)
 					setTimeout(() => {
 						uni.switchTab({
