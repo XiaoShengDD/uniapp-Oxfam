@@ -107,7 +107,6 @@
 		},
 
 		onShow() {
-
 			if (uni.getStorageSync('rescodeUserInfo').user_id) {
 				this.userdetail()
 

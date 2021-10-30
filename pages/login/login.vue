@@ -1,5 +1,6 @@
 <template>
 	<view class="content">
+		<a @click="changeLanguage" class="changeLanguage" href="javascript:void(0)">{{lang}}</a>
 		<view class="logo">
 			<image src="/static/img/images/logo.png" mode=""></image>
 			<view class="" style="color:#0046AE ;">乐施会</view>
@@ -33,6 +34,7 @@
 				list: [],
 				show: false,
 				shenfen: '',
+				lang:"",
 				formdata: {
 					"phone": "",
 					"password": "",
@@ -40,7 +42,13 @@
 				},
 			}
 		},
+
 		onShow() {
+			if(uni.getStorageSync("language") == "en-CN"){
+				this.lang = "English"
+			}else{
+				this.lang = "中文"
+			}
 			this.formdata = {
 				phone: "",
 				password: "",
@@ -48,7 +56,19 @@
 			}
 		},
 		methods: {
-			
+			// 语言切换
+			changeLanguage(){
+				if(uni.getStorageSync("language") == "en-CN"){
+					uni.setStorageSync('language','en-US')
+					this.lang = "中文"
+					this._i18n.locale = 'en-US'
+				}else{
+					uni.setStorageSync('language','en-CN')
+					this.lang = "English"
+					this._i18n.locale = 'en-CN'
+				}
+				location.reload()
+			},
 			aaa(e){
 				if(/^\w+@[a-z0-9]+\.[a-z]{2,4}$/.test(e.detail.value)){
 					this.userList()
@@ -160,6 +180,17 @@
 </style>
 <style lang="scss" scoped>
 	$color-primary: #007AFF;
+
+	.changeLanguage{
+		text-decoration: none;
+		position: absolute;
+		top:0;
+		right: 50upx;
+	}
+	
+	.changeLanguage:hover:active{
+		color: #007AFF;
+	}
 
 	.btnss {
 		margin-top: 130upx;
