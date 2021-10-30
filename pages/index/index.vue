@@ -4,22 +4,22 @@
 			<view class="jibie color_fff">
 				投资级别: {{userinfo.level_value||'无'}}
 			</view>
-			<view class="jine color_fff" v-if="yueinfo[0]">
-				{{yueinfo[0].coin_value}}U
+			<view class="jine color_fff" v-if="yueinfo1">
+				{{yueinfo1.coin_value}}U
 			</view>
-			<view class="bordersss display_flex flex_between" v-if="yueinfo[1]">
-				<view class="bordersssview">
-					<view>{{yueinfo[1].coin_name}}</view>
-					<view class="">{{yueinfo[1].coin_value}}</view>
+			<view class="bordersss display_flex flex_between" v-if="yueinfo2">
+				<view v-for="item in yueinfo2" :key="item.coin_name" class="bordersssview">
+					<view>{{item.coin_name}}</view>
+					<view class="">{{item.coin_value}}</view>
 				</view>
-				<view class="bordersssview" >
+			<!-- 	<view class="bordersssview" >
 					<view>{{yueinfo[2].coin_name}}</view>
 					<view class="">{{yueinfo[2].coin_value}}</view>
 				</view>
 				<view class="bordersssview">
 					<view>{{yueinfo[3].coin_name}}</view>
 					<view class="">{{yueinfo[3].coin_value}}</view>
-				</view>
+				</view> -->
 			</view>
 		</view>
 		<view class="jiange"></view>
@@ -101,6 +101,8 @@
 				],
 				teamCount: '',
 				yueinfo: {},
+				yueinfo1: {},
+				yueinfo2:[]
 
 
 			}
@@ -140,17 +142,22 @@
 			},
 			// 初始化方法
 			async userwallet() {
+				this.yueinfo1 = {}
+				this.yueinfo2 = []
 				let data = {
 					user_id: uni.getStorageSync('rescodeUserInfo').user_id
 				}
 				const res = await this.$appserve.userwallet(data);
 				//console.log(res)
 				res.data.forEach((item) => {
-					// if(item.coin_name == 'USDT'){
-
-					// }
 					item.coin_value = this.jiequ(item.coin_value, 2)
+					if(item.coin_name == 'USDT'){
+						this.yueinfo1 = item
+					}else{
+						this.yueinfo2.push(item)
+					}
 				})
+				
 				this.yueinfo = res.data
 
 			},
@@ -197,7 +204,6 @@
 					user_id: uni.getStorageSync('rescodeUserInfo').user_id
 				}
 				const res = await this.$appserve.userdetail(data);
-				console.log(res)
 				this.userinfo = res.data
 				if (res.code == 0) {
 					this.myteamcount()
