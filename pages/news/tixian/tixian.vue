@@ -46,7 +46,7 @@
 			<view>4，请务必确认目标地址是否存在且被激活，否则将会导致提币失败,且资产不可找回。 </view>
 			<view>5.请务必确认您的电脑，手机及浏览器安全，防止信息泄露或被篡改。</view>
 		</view>
-		<view class="zhuyi" v-if="Bid.coin_name == 'SHIB'">
+		<view class="zhuyi" v-if="Bid.coin_name == 'SHIBI'">
 			<view>SHIB提现注意事项 </view>
 			<view>1.请准确输入您的提现地址。 </view>
 			<view>2.无提现手续费。</view>
@@ -106,6 +106,14 @@
 		methods: {
 			// 初始化方法
 			async tixian() {
+				
+				var d = new Date().getDay();
+				
+				if(d != 4 && d != 5){
+					this.$utils.toast('提现日为周四或者周五，请耐心等待')
+					return false
+				}
+				
 				if (this.value1 == "") {
 					this.$utils.toast('请输入地址')
 					return false
