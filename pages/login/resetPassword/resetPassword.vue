@@ -203,7 +203,7 @@
 				
 				
 				let data = {
-					"user_mobile_phone": this.formdata.phone,,
+					"user_mobile_phone": this.formdata.phone,
 					"task_id": this.formdata.task_id,
 					"sms_code": this.formdata.code,
 					"user_id": this.formdata.type,

@@ -56,6 +56,7 @@
 				提币失败,且资产不可找回。</view>
 			<view>5.请务必确认您的电脑，手机及浏览器安全，防止信息泄露
 				或被篡改。</view>
+			<view>6.常用地址为收U的账户地址</view>
 
 		</view>
 		<view class="zhuyi" v-if="Bid.coin_name == 'AKITA'">
