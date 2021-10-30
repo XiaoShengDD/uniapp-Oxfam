@@ -6,7 +6,7 @@
 			<view class="" style="color:#0046AE ;">乐施会</view>
 		</view>
 		<view class="uni-form-item uni-column">
-			<input class="uni-input" placeholder="请输入邮箱" @input="aaa()" v-model="formdata.phone" />
+			<input class="uni-input" placeholder="请输入邮箱" @input="aaa" v-model="formdata.phone" />
 		</view>
 		<view class="uni-form-item uni-column">
 			<input type="text" class="uni-input" name="" placeholder="选择账号" disabled="" @click="xuanze"
@@ -70,7 +70,7 @@
 				location.reload()
 			},
 			aaa(e){
-				if(/^\w+@[a-z0-9]+\.[a-z]{2,4}$/.test(e.detail.value)){
+				if(!/^\w+@[a-z0-9]+\.[a-z]{2,4}$/.test(e.detail.value)){
 					this.userList()
 				}
 			},
@@ -80,11 +80,15 @@
 				if (this.formdata.phone == "") {
 					this.$utils.toast('请输入邮箱')
 				} else {
-
-					if (this.list.length > 0) {
-						this.show = true
-					} else {
-						this.$utils.toast('您还未注册，请前往注册')
+					if(!/^\w+@[a-z0-9]+\.[a-z]{2,4}$/.test(this.formdata.phone)){
+						this.$utils.toast('请输入正确的邮箱地址')
+						return false
+					}else{
+						if (this.list.length > 0) {
+							this.show = true
+						} else {
+							this.$utils.toast('您还未注册，请前往注册')
+						}
 					}
 
 				}
@@ -125,7 +129,7 @@
 					this.$utils.toast('请输入邮箱')
 					return false
 				} else {
-					if (!re.test(this.formdata.phone)) {
+					if (!/^\w+@[a-z0-9]+\.[a-z]{2,4}$/.test(this.formdata.phone)) {
 						this.$utils.toast('请输入正确的邮箱地址')
 						return false
 					}

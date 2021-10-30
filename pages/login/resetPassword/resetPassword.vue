@@ -128,13 +128,16 @@
 				if (this.formdata.phone == "") {
 					this.$utils.toast('请输入邮箱')
 				} else {
-
-					if (this.list.length > 0) {
-						this.show = true
-					} else {
-						this.$utils.toast('您还未注册，请前往注册')
+					if(!/^\w+@[a-z0-9]+\.[a-z]{2,4}$/.test(this.formdata.phone)){
+						this.$utils.toast('请输入正确的邮箱地址')
+						return false
+					}else{
+						if (this.list.length > 0) {
+							this.show = true
+						} else {
+							this.$utils.toast('您还未注册，请前往注册')
+						}
 					}
-
 				}
 			},
 			// 获取账号列表
