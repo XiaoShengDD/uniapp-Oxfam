@@ -165,7 +165,7 @@
 			},
 			// 验证码子组件返回
 			async Captcha() {
-				this.$utils.toast('短信发送成功', 'top');
+				this.$utils.toast('验证码发送成功', 'top');
 				this.getCode()
 			},
 
