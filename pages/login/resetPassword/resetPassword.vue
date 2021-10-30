@@ -55,7 +55,8 @@
 					"phone": "",
 					"password": "",
 					"type": '',
-					"code": ''
+					"code": '',
+					"task_id":''
 				},
 			}
 		},
@@ -111,6 +112,7 @@
 					sms_biz_type: "Register",
 				};
 				const res = await this.$appserve.smscode(data);
+				this.formdata.task_id = res.data.task_id
 			},
 			doLoop() {
 				this.nums--;
@@ -168,8 +170,6 @@
 				//console.log(e);
 				this.shenfen = e[0].label
 				this.formdata.type = e[0].value
-
-
 			},
 			// 初始化方法
 			async submit() {
@@ -201,29 +201,41 @@
 					return
 				}
 				
+				
 				let data = {
-					user_mobile_phone: this.formdata.phone,
-					user_id: this.formdata.type,
-					user_login_password: this.formdata.password
+					"user_mobile_phone": this.formdata.phone,,
+					"task_id": this.formdata.task_id,
+					"sms_code": this.formdata.code,
+					"user_id": this.formdata.type,
+					"user_login_password": this.formdata.password
 				}
+				
+				const res = await this.$appserve.loginpassword(data);
+				this.$utils.toast('密码重置成功');
+				setTimeout(() => {
+					uni.reLaunch({
+						url: '/pages/login/login'
+					})
+				}, 1000)
+				
+				// let data = {
+				// 	user_mobile_phone: this.formdata.phone,
+				// 	user_id: this.formdata.type,
+				// 	user_login_password: this.formdata.password
+				// }
 
-				const res = await this.$appserve.userlogin(data);
-				if (res.code == 0) {
-					this.$utils.toast('密码修改修改成功')
-					uni.setStorageSync('rescodeUserInfo', res.data)
-					setTimeout(() => {
-						uni.switchTab({
-							url: '/pages/index/index'
-						})
-					}, 1000)
-				}
+				// const res = await this.$appserve.userlogin(data);
+				// if (res.code == 0) {
+				// 	this.$utils.toast('密码修改修改成功')
+				// 	uni.setStorageSync('rescodeUserInfo', res.data)
+				// 	setTimeout(() => {
+				// 		uni.switchTab({
+				// 			url: '/pages/index/index'
+				// 		})
+				// 	}, 1000)
+				// }
 
 
-			},
-			gotoRegistration() {
-				uni.navigateTo({
-					url: 'reg/reg'
-				});
 			},
 
 		}
