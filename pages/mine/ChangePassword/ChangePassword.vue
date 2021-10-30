@@ -3,8 +3,8 @@
 		<u-no-network></u-no-network>
 		<view class="login-phone-main">
 			<view class="login-phone-from display_flex align_item">
-				<view class="phone">手机号：</view>
-				<input class="login-phone-from-input" disabled="" type="number" maxlength="11" placeholder="请输入手机号" v-model="mobile" />
+				<view class="phone">邮箱：</view>
+				<input class="login-phone-from-input" disabled="" type="email" maxlength="11" placeholder="请输入邮箱" v-model="mobile" />
 			</view>
 			<view class="login-phone-from display_flex align_item">
 				<view class="pas">验证码：</view>
@@ -28,9 +28,6 @@
 		<view class="login-phone-btns" v-else @click="resetPassword(2)">
 			<view class="login-phone-btn">保存</view>
 		</view>
-
-
-
 
 	</view>
 </template>
@@ -88,22 +85,45 @@
 			},
 			getVerCode() {
 				//获取验证码
-				if (this.mobile.length != 11) {
-					this.$utils.toast('手机号不正确', 'top');
+				if (this.mobile.length == "") {
+					this.$utils.toast('请输入邮箱地址', 'top');
 					return false;
 				}
+				
+				if (!/^\w+@[a-z0-9]+\.[a-z]{2,4}$/.test(this.mobile)) {
+					this.$utils.toast('邮箱地址不正确，请重填', 'top');
+					return false;
+				}
+				
 				this.Captcha()
 			},
 			// 验证码子组件返回
 			async Captcha() {
-				this.$utils.toast('短信发送成功', 'top');
+				this.$utils.toast('验证码发送成功', 'top');
 				this.getCode()
 			},
 
 
 			// 初始化方法
 			async resetPassword(type) {
-
+				
+				if (!/^\w+@[a-z0-9]+\.[a-z]{2,4}$/.test(this.mobile)) {
+					this.$utils.toast('邮箱地址不正确，请重填', 'top');
+					return false;
+				}
+				
+				if(this.code == ""){
+					this.$utils.toast('请输入验证码', 'top');
+					return
+				}
+				
+				
+				if(this.password == ""){
+					this.$utils.toast('请输入密码', 'top');
+					return
+				}
+				
+				
 				if (this.password != this.newpassword) {
 					this.$utils.toast('两次密码不一致', 'top');
 					return
@@ -147,13 +167,15 @@
 			async getCode() {
 				//、短信类型（0注册/1重置密码/2快捷登录）
 				if (this.mobile == '') {
-					this.$utils.toast('请输入手机号', 'top');
+					this.$utils.toast('请输入邮箱地址', 'top');
 					return;
 				}
-				if (!/^1[3456789]\d{9}$/.test(this.mobile)) {
-					this.$utils.toast('手机号码有误，请重填', 'top');
+				
+				if (!/^\w+@[a-z0-9]+\.[a-z]{2,4}$/.test(this.mobile)) {
+					this.$utils.toast('邮箱地址不正确，请重填', 'top');
 					return;
 				}
+				
 				if (this.isGet) {
 					this.isGet = false;
 					this.timer = setInterval(this.doLoop, 1000);

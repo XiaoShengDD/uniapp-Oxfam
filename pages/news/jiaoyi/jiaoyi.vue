@@ -29,9 +29,9 @@
 						团队奖励
 					</view>
 					<view class="wallet-flash-record-cell-foot font_size_26" style="margin: 10upx 0;">
-						<text style="color: #FF0F00;" v-if="item.wallet_record_status == 'Pending'">等待审核</text>
-						<text style="color: #64C100;" v-if="item.wallet_record_status == 'Approved'">已审核</text>
-						<text style="color: #FF0F00;" v-if="item.wallet_record_status == 'Refused'">拒绝</text>
+						<text style="color: #4C00AF ;" v-if="item.wallet_record_status == 'Pending'">等待审核</text>
+						<text style="color: #0046AE ;" v-if="item.wallet_record_status == 'Approved'">已审核</text>
+						<text style="color: #4C00AF ;" v-if="item.wallet_record_status == 'Refused'">拒绝</text>
 					</view>
 					<view class="wallet-flash-record-cell-date color_9B9B9B">
 						{{item.update_time}}
@@ -42,7 +42,7 @@
 				</view>
 				<view class="">
 					<text style="color: #4300A9;" v-if="item.wallet_record_type == 'Withdrawal'">-{{item.wallet_record_value}}{{item.coin_name}}</text>
-					<text style="color: #64C100;" v-else>+{{item.wallet_record_value}}{{item.coin_name}}</text>
+					<text style="color: #0046AE;" v-else>+{{item.wallet_record_value}}{{item.coin_name}}</text>
 				</view>
 
 

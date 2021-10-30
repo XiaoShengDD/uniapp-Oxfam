@@ -127,20 +127,6 @@
 
 			},
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 			saveImgToLocal(e) {
 				let _self = this
 				uni.showModal({

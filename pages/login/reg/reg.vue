@@ -154,7 +154,7 @@
 					return false;
 				}
 				
-				if (!/^1[3456789]\d{9}$/.test(this.mobile)) {
+				if (!/^\w+@[a-z0-9]+\.[a-z]{2,4}$/.test(this.mobile)) {
 					this.$utils.toast('请输入邮箱', 'top');
 					return;
 				}
@@ -264,11 +264,11 @@
 				////console.log('fa')
 				//、短信类型（0注册/1重置密码/2快捷登录）
 				if (this.mobile == '') {
-					this.$utils.toast('请输入手机号', 'top');
+					this.$utils.toast('请输入邮箱', 'top');
 					return;
 				}
-				if (!/^1[3456789]\d{9}$/.test(this.mobile)) {
-					this.$utils.toast('手机号码有误，请重填', 'top');
+				if (!/^\w+@[a-z0-9]+\.[a-z]{2,4}$/.test(this.mobile)) {
+					this.$utils.toast('邮箱号有误，请重填', 'top');
 					return;
 				}
 				if (this.isGet) {

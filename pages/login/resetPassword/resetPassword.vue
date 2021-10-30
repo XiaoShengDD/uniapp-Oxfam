@@ -27,7 +27,7 @@
 		</view>
 		
 		<u-checkbox-group>
-			<u-checkbox v-model="checked" active-color="#6BCF01">
+			<u-checkbox v-model="checked" active-color="##0046AE">
 			</u-checkbox>
 			已阅读并同意
 			<span @click="open(1)">《用户协议》</span>
@@ -302,10 +302,10 @@
 		font-weight: 400;
 		color: #fff;
 		line-height: 36upx;
-		background-color: #6BCF01;
+		background-color: #0046AE;
 		padding: 10upx 20upx;
 		border-radius: 6upx;
-		box-shadow: 5upx 5upx 10upx #73DE00;
+		box-shadow: 5upx 5upx 10upx #0046AE;
 		text-align: center;
 		position: absolute;
 		right: 0;
@@ -318,7 +318,7 @@
 	}
 	
 	.u-checkbox-group span {
-		color: #6BCF01;
+		color: 1#0046AE;
 		margin-left: 5rpx;
 	}
 	
