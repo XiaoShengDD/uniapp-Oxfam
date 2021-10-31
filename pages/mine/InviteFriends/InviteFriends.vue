@@ -1,7 +1,7 @@
 <template>
 	<view class="index">
 		<!-- 标题 -->
-		<navBar title="我的邀请码" color="#fff" v-if="navShow"></navBar>
+		<navBar :title="$t('invitation_code')" color="#fff" v-if="navShow"></navBar>
 		<view class="mine-code">
 			<image class="mine-codeimg" src="/static/img/bg1.png" mode="scaleToFill"></image>
 			<view class="mine-code-qr-bg">
@@ -17,7 +17,7 @@
 					<view class="mine-code-share">
 						<!-- @tap="download" 保存二维码 -->
 						<view class="mine-code-share1">乐施会</view>
-						我的邀请码:{{userinfo.user_invitation_code}}
+						{{$t('invitation_code')}}:{{userinfo.user_invitation_code}}
 					</view>
 				</view>
 			</view>

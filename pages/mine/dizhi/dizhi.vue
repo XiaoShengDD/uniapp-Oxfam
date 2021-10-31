@@ -1,7 +1,7 @@
 <template>
 	<view class="container">
 		<u-no-network></u-no-network>
-		<nodata title="暂无" v-if="list.length == 0"></nodata>
+		<nodata :title="$t('Not_available')" v-if="list.length == 0"></nodata>
 		<view class="boxe" v-for="(i,index) in list" v-if="list.length>0" :key="index">
 			{{i.withdrawal_address_value}}
 		</view>

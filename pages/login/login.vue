@@ -71,7 +71,7 @@
 					this.lang = "English"
 					this._i18n.locale = 'en-CN'
 				}
-				// this.$router.go(0)
+				this.$router.go(0)
 			},
 			aaa(e){
 				if(/^\w+@[a-z0-9]+\.[a-z]{2,4}$/.test(e.detail.value)){

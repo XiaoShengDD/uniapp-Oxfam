@@ -4,12 +4,12 @@
 			<u-no-network></u-no-network>
 			<view class="login-phone-main">
 				<view class="login-phone-from display_flex align_item">
-					<view class="phone">常用地址：</view>
+					<view class="phone">{{ $t('usual_address') }}：</view>
 					<input class="login-phone-from-input" type="text"  placeholder="请输入常用地址" v-model="password" />
 				</view>
 			</view>
 			<view class="login-phone-btns" @click="userdetail">
-				<view class="login-phone-btn">保存</view>
+				<view class="login-phone-btn">{{ $t('save') }}</view>
 			</view>
 		</view>
 		
@@ -39,7 +39,7 @@
 					withdrawal_address_value:this.password
 				}
 				const res = await this.$appserve.withdrawaladdressadd(data);
-				this.$utils.toast("添加成功");
+				this.$utils.toast(this._i18n.t('Added_successfully'));
 				setTimeout(() => {
 					uni.navigateBack({
 						delta:1
@@ -53,7 +53,7 @@
 			async resetPassword() {
 				
 				if (this.password =='') {
-					this.$utils.toast('请输入交易密码', 'top');
+					this.$utils.toast(this._i18n.t('transaction_password'), 'top');
 					return
 				}
 				let data = {

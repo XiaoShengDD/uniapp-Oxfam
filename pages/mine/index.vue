@@ -8,7 +8,7 @@
 				<image class="mine-main-head-img" src="/static/img/hader.png" />
 				<view class="mine-main-head-info-box">
 					<view>
-						<text class="mine-main-head-info-name">{{userinfo?(userinfo.user_nick_name?userinfo.user_nick_name:'暂无昵称'):'暂无昵称'}}</text>
+						<text class="mine-main-head-info-name">{{userinfo?(userinfo.user_nick_name?userinfo.user_nick_name:$t('no_nickname')): $t('no_nickname') }}</text>
 					</view>
 				</view>
 			</view>
@@ -30,7 +30,7 @@
 		</view>
 
 		<view class="tuichus" @click="tui">
-			退出登录
+			{{ $t('Log_out') }}
 		</view>
 
 	</view>
@@ -43,31 +43,31 @@
 				menuList: [{
 						"id": 1,
 						"icon": "/static/img/w1.png",
-						"name": "邀请好友",
+						"name": this._i18n.t('Invite_a_friend'),
 						"url": "/pages/mine/InviteFriends/InviteFriends",
 					},
 					{
 						"id": 2,
 						"icon": "/static/img/w2.png",
-						"name": "修改密码",
+						"name": this._i18n.t('Change_password'),
 						"url": "/pages/mine/ChangePassword/ChangePassword",
 					},
 					{
 						"id": 3,
 						"icon": "/static/img/w3.png",
-						"name": "交易密码",
+						"name": this._i18n.t('Trading_Password'),
 						"url": "/pages/mine/TransactionCode/TransactionCode",
 					},
 					{
 						"id": 4,
 						"icon": "/static/img/w4.png",
-						"name": "留言板",
+						"name": this._i18n.t('Message_Board'),
 						"url": "/pages/mine/MessageBoard/MessageBoard",
 					},
 					{
 						"id": 5,
 						"icon": "/static/img/w5.png",
-						"name": "添加常用地址",
+						"name": this._i18n.t('Add_common_address'),
 						"url": "/pages/mine/dizhi/dizhi",
 					},
 
@@ -81,9 +81,12 @@
 		},
 		methods: {
 			tui() {
+				
+				let _self = this
+				
 				uni.showModal({
-					title: '退出登录',
-					content: '您确定要退出当前账户的登录吗？',
+					title: _self._i18n.t('Log_out'),
+					content: _self._i18n.t('sure_Log_out'),
 					cancelColor: '#666',
 					confirmColor: '#0046AE',
 					success: (res) => {

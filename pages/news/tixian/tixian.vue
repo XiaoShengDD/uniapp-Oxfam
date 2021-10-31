@@ -119,10 +119,27 @@
 					this.$utils.toast('请输入地址')
 					return false
 				}
+				
 				if (this.value2 == "") {
 					this.$utils.toast('请输入金额')
 					return false
 				}
+				
+				if(this.Bid.coin_name == "USDT"){
+					if(this.value2 < 100){
+						this.$utils.toast("最少提现金额100U");
+						return false
+					}		
+				}
+				
+				if(this.Bid.coin_name == "SHIBI" || this.Bid.coin_name == "NFT"){
+					if(this.value2 < 1000000){
+						this.$utils.toast("最少提现金额100万");
+						return false
+					}	
+				}
+				
+				
 				if (this.value2 == "") {
 					this.$utils.toast('请输入交易密码')
 					return false

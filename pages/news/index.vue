@@ -79,6 +79,12 @@
 						url:"./chongzhi/chongzhi?id="+JSON.stringify(id) 
 					})
 				}else{
+					
+					if(id.coin_name == "GLZ"){
+						this.$utils.toast("该币种暂不支持体现，敬请期待");
+						return false
+					}
+					
 					uni.navigateTo({
 						url:"./tixian/tixian?id="+JSON.stringify(id) 
 					})

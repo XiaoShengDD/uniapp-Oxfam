@@ -7,18 +7,18 @@
 					{{zong}}
 				</view>
 				<view class="wenzi1">
-					平台人数
+					{{ $t('people_Number') }}
 				</view>
 			</view>
 		</view>
 		<view class="jiange"></view>
 		<view class="xiaji" style="color: #555555;">
-			募捐明细
+			{{ $t('donation_details') }}
 			<view class="box"  v-for="(item,index) in boxList" :key="index">
 				<view class="shang display_flex flex_between">
 					<view class="shangconteny display_flex flex_start">
 						<image :src="item.donation_image_url!=''?item.donation_image_url:'/static/img/hader.png'" mode=""></image>
-						<text style="position: relative;top: -6upx;">{{item.user_nick_name||'暂无昵称'}}</text>
+						<text style="position: relative;top: -6upx;">{{item.user_nick_name|| $t('no_nickname') }}</text>
 					</view>
 					<view class="jiayi font_size_32" style="color: #FF0F00;font-weight: 600;">
 						+{{item.jiequ}}{{item.donation_type}}

@@ -3,7 +3,7 @@
 		<u-no-network></u-no-network>
 		<view class="box">
 			<view class="shangchaun font_size_32 color_222">
-				募捐币种
+				{{ $t('recharge_currency') }}
 			</view>
 			<view class="czsl display_flex flex_wrap ">
 				<view class="activeclass">USDT</view>
@@ -11,7 +11,7 @@
 		</view>
 		<view class="box">
 			<view class="shangchaun font_size_32 color_222">
-				募捐数值
+				{{ $t('recharge_quantity') }}
 			</view>
 			<view class="inputbox display_flex flex_between">
 				<u-input style="width: 70%;" v-model="value1" type="number" :border="false" placeholder="请输入" />
@@ -26,38 +26,36 @@
 
 		<view class="box">
 			<view class="shangchaun font_size_32 color_222">
-				募捐二维码
+				{{ $t('recharge_QRcode') }}
 			</view>
 			<!-- @click="yulan(url)" -->
 			<image class="erweima" :src="listss.donation_image_url" @click="saveImgToLocal(listss.donation_image_url)" mode=""></image>
 			<view class="display_flex flex_start">
 				<view class="color_222 font_size_28 over_one" style="max-width: 80%;margin-right: 20upx;">{{listss.donation_address}}</view>
-				<view class="" style="color: #0046ae;" @click="copyTap(listss.donation_address)">复制</view>
+				<view class="" style="color: #0046ae;" @click="copyTap(listss.donation_address)">{{ $t('copy') }}</view>
 			</view>
 		</view>
 
 		<view class="box">
 			<view class="shangchaun font_size_32 color_222">
-				上传凭证
+				{{ $t('upload_voucher') }}
 			</view>
 			<u-toast ref="uToast" />
 			<u-upload ref="uUpload" name="image" max-count="1" :action="action"  @on-progress="imgprogress" :auto-upload="true" @on-success="success" @on-uploaded="imguploaded"></u-upload>
 		</view>
 
 		<view class="zhuyi">
-			<view>募捐注意事项 </view>
-			<view>1.请确认充币地址是TRC20型T开头的地址。 </view>
-			<view>2.最小募捐金额5U。小于最小充币金额的将不会到账且无法退回。 </view>
-			<view>3.请勿向上述地址募捐任何非USDT资产（链类型：TRC20）,
-				否则资产不可找回。 </view>
-			<view>4.您的募捐地址不会经常改变，可以重复募捐，如有改变，将会在
-				募捐页面给予通知。 </view>
-			<view>5.请务必确认您的电脑，手机及浏览器安全，防止信息泄露或被
-				篡改。</view>
-			<view>6.感谢您的善举，愿您一生平安。</view>
+			<view>{{ $t('donation_notes') }} </view>
+			<view>{{ $t('donation_notes1') }} </view>
+			<view>{{ $t('donation_notes2') }} </view>
+			<view>{{ $t('donation_notes3') }} </view>
+			<view>{{ $t('donation_notes4') }} </view>
+			<view>{{ $t('donation_notes5') }} </view>
+			<view>{{ $t('donation_notes6') }} </view>
+			
 		</view>
 		<view class="btnss" @click="mujuan">
-			立即募捐
+			{{ $t('recharge_now') }}
 		</view>
 	</view>
 </template>
@@ -79,7 +77,7 @@
 		methods: {
 			imgprogress(res, index, lists, name) {
 				this.$refs.uToast.show({
-					title: `已上传${res.progress}%`,
+					title: this._i18n.t('Uploaded') + `${res.progress}%`,
 					type: 'success',
 				})
 			},
@@ -92,15 +90,15 @@
 			},
 			async mujuan() {
 				if (this.value1 == '') {
-					this.$utils.toast('请输入金额')
+					this.$utils.toast(this._i18n.t('amount'))
 					return false
 				}
 				if (Math.floor(this.value1) < 5) {
-					this.$utils.toast('最小募捐金额5U')
+					this.$utils.toast(this._i18n.t('Minimum') + '5U')
 					return false
 				}
 				if(this.imgurls == ''){
-					this.$utils.toast("请上传凭证");
+					this.$utils.toast(this._i18n.t('vouchers'));
 					return false
 				}
 
@@ -111,7 +109,7 @@
 					donation_address: this.listss.donation_address,
 				}
 				const res = await this.$appserve.donation(data);
-				this.$utils.toast("交易成功");
+				this.$utils.toast(this._i18n.t('Successful_transaction'));
 				setTimeout(() => {
 					uni.navigateBack({
 						delta: 1
@@ -130,8 +128,8 @@
 			saveImgToLocal(e) {
 				let _self = this
 				uni.showModal({
-					title: '提示',
-					content: '确定保存到相册吗',
+					title: _self._i18n.t('Tips'),
+					content: _self._i18n.t('save_album'),
 					success: function(res) {
 						if (res.confirm) {
 							uni.downloadFile({
@@ -142,13 +140,13 @@
 											filePath: res.tempFilePath,
 											success: function() {
 												uni.showToast({
-													title: "保存成功",
+													title: _self._i18n.t('save_album'),
 													icon: "none"
 												});
 											},
 											fail: function() {
 												uni.showToast({
-													title: "保存失败",
+													title:  _self._i18n.t('Failed_to_save'),
 													icon: "none"
 												});
 											}
@@ -167,16 +165,17 @@
 			// 复制
 			copyTap(hash) {
 				// #ifdef APP-PLUS
+				var _self = this
 				uni.setClipboardData({
 					data: hash,
 					success() {
 						uni.showToast({
-							title: "复制成功",
+							title: _self._i18n.t('Reproduction_success'),
 						});
 					},
 					fail() {
 						uni.showToast({
-							title: "复制失败",
+							title: _self._i18n.t('Copy_failure'),
 							icon: "none",
 						});
 					},

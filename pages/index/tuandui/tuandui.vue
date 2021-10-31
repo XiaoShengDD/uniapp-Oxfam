@@ -6,17 +6,17 @@
 				<image class="touxiang" src="/static/img/s14.png" mode=""></image>
 			</view>
 			<view class="tuandui" @click="clickMenu('/pages/index/tuandui/tuandui')">
-				<view class="" style="text-align: left;">{{name}}的团队</view>
+				<view class="" style="text-align: left;">{{name}} {{ $t("team_name") }}</view>
 				<view class="" style="padding-top: 20upx;text-align: left;">
-					<view class="">团队总人数: {{tameinfo.teamCount}}</view>
-					<view class="" v-if="tameinfo.teamCoin">团队总{{tameinfo.teamCoin[0].coin_name}} : {{tameinfo.teamCoin[0].coin_value}}</view>
-					<view class="" v-if="tameinfo.teamCoin">团队总{{tameinfo.teamCoin[1].coin_name}} : {{tameinfo.teamCoin[1].coin_value}}</view>
+					<view class="">{{ $t("team_size") }}: {{tameinfo.teamCount}}</view>
+					<view class="" v-if="tameinfo.teamCoin">{{ $t("team_total") }}{{tameinfo.teamCoin[0].coin_name}} : {{tameinfo.teamCoin[0].coin_value}}</view>
+					<view class="" v-if="tameinfo.teamCoin">{{ $t("team_total") }}{{tameinfo.teamCoin[1].coin_name}} : {{tameinfo.teamCoin[1].coin_value}}</view>
 				</view>
 			</view>
 		</view>
 		<view class="jiange"></view>
 		<view class="xiaji" style="color: #555555;" v-if="tameinfo.childList">
-			下级用户({{tameinfo.childList.length}})
+			{{ $t("sub_user") }}({{tameinfo.childList.length}})
 			<view class="box"  v-for="(item,index) in tameinfo.childList" :key="index">
 				<view class="shang display_flex flex_between">
 					<view class="shangconteny display_flex flex_start">

@@ -2,16 +2,16 @@
 	<view class="content">
 
 		<view class="uni-form-item uni-column">
-			<input class="uni-input" @input="aaa" placeholder="请输入邮箱" v-model="formdata.phone" />
+			<input class="uni-input" @input="aaa" :placeholder="$t('P_Email')" v-model="formdata.phone" />
 		</view>
 		<view class="uni-form-item uni-column">
-			<input type="text" class="uni-input" name="" placeholder="选择账号" disabled="" @click="xuanze"
+			<input type="text" class="uni-input" name="" :placeholder="$t('Select_account')" disabled="" @click="xuanze"
 				v-model="shenfen" />
 			<u-select v-model="show" :list="list" @confirm="confirm"></u-select>
 		</view>
 
 		<view class="uni-form-item uni-column">
-			<input v-model="formdata.code" type="text" class="uni-input" maxlength="8" placeholder="请输入验证码"
+			<input v-model="formdata.code" type="text" class="uni-input" maxlength="8" :placeholder="$t('P_Code')"
 				:border="false" />
 			<view style="margin-left: 20upx;" class="reset-phone-from-btn" v-if="nums == 60" @click="getVerCode">
 				{{ codeText }}
@@ -20,21 +20,21 @@
 		</view>
 
 		<view class="uni-form-item uni-column">
-			<input type="password" class="uni-input" name="" placeholder="新的密码" v-model="formdata.password" />
+			<input type="password" class="uni-input" name="" :placeholder="$t('New_password')" v-model="formdata.password" />
 		</view>
 		<view class="uni-form-item uni-column">
-			<input type="password" class="uni-input" name="" placeholder="重复密码" v-model="formdata.repeatPassword" />
+			<input type="password" class="uni-input" name="" :placeholder="$t('Repeat_password')" v-model="formdata.repeatPassword" />
 		</view>
 		
 		<u-checkbox-group>
-			<u-checkbox v-model="checked" active-color="##0046AE">
+			<u-checkbox v-model="checked" active-color="#0046AE">
 			</u-checkbox>
-			已阅读并同意
-			<span @click="open(1)">《用户协议》</span>
+			{{ $t('Read') }}
+			<span @click="open(1)">《{{ $t('Agreement') }}》</span>
 		</u-checkbox-group>
 		
 		<view class="btnss" @click="submit">
-			重置密码
+			{{ $t('Reset_password') }}
 		</view>
 
 	</view>
@@ -48,7 +48,7 @@
 				show: false,
 				isGet: true,
 				checked: false,
-				codeText: "获取验证码",
+				codeText: this._i18n.t('getCode'),
 				shenfen: '',
 				nums: 60,
 				formdata: {
@@ -79,12 +79,12 @@
 
 				//获取验证码
 				if (!this.formdata.phone) {
-					this.$utils.toast('邮箱地址不得为空', 'top');
+					this.$utils.toast(this._i18n.t('P_Email'), 'top');
 					return false;
 				}
 
 				if (!/^\w+@[a-z0-9]+\.[a-z]{2,4}$/.test(this.formdata.phone)) {
-					this.$utils.toast('请输入正确的邮箱地址', 'top');
+					this.$utils.toast(this._i18n.t('L_t_Email'), 'top');
 					return;
 				}
 
@@ -94,7 +94,7 @@
 
 
 			async Captcha() {
-				this.$utils.toast('验证码发送成功', 'top');
+				this.$utils.toast(this._i18n.t('send_success'), 'top');
 				this.getCode()
 			},
 
@@ -117,10 +117,10 @@
 			doLoop() {
 				this.nums--;
 				if (this.nums > 0) {
-					this.codeText = '重新获取(' + this.nums + 's)';
+					this.codeText = this._i18n.t('Recapture') + '(' + this.nums + 's)';
 				} else {
 					clearInterval(this.timer); //清除js定时器
-					this.codeText = '发送验证码';
+					this.codeText = this._i18n.t('getCode');
 					this.nums = 60; //重置时间
 					this.isGet = true;
 				}
@@ -128,16 +128,16 @@
 			xuanze() {
 
 				if (this.formdata.phone == "") {
-					this.$utils.toast('请输入邮箱')
+					this.$utils.toast(this._i18n.t('P_Email'))
 				} else {
 					if(!/^\w+@[a-z0-9]+\.[a-z]{2,4}$/.test(this.formdata.phone)){
-						this.$utils.toast('请输入正确的邮箱地址')
+						this.$utils.toast(this._i18n.t('L_t_Email'))
 						return false
 					}else{
 						if (this.list.length > 0) {
 							this.show = true
 						} else {
-							this.$utils.toast('您还未注册，请前往注册')
+							this.$utils.toast(this._i18n.t('go_Register'))
 						}
 					}
 				}
@@ -175,28 +175,28 @@
 				
 				
 				if (this.formdata.phone == "") {
-					this.$utils.toast('请输入邮箱')
+					this.$utils.toast(this._i18n.t('P_Email'))
 					return false
 				} else {
 					let re = /^\w+@[a-z0-9]+\.[a-z]{2,4}$/;
 					if (!re.test(this.formdata.phone)) {
-						this.$utils.toast('请输入正确的邮箱地址')
+						this.$utils.toast(this._i18n.t('L_t_Email'))
 						return false
 					}
 				}
 
 
 				if (this.formdata.password == "") {
-					this.$utils.toast('请输入密码')
+					this.$utils.toast(this._i18n.t('T_passsword'))
 					return false
 				}
 				if (this.shenfen == "") {
-					this.$utils.toast('请输入选择登录账号')
+					this.$utils.toast(this._i18n.t('T_select_login'))
 					return false
 				}
 				
 				if (this.checked == false) {
-					this.$utils.toast('请阅读用户协议', 'top');
+					this.$utils.toast(this._i18n.t('Read') + this._i18n.t('Agreement'), 'top');
 					return
 				}
 				
@@ -210,7 +210,7 @@
 				}
 				
 				const res = await this.$appserve.loginpassword(data);
-				this.$utils.toast('密码重置成功');
+				this.$utils.toast(this._i18n.t('P_R_S'));
 				setTimeout(() => {
 					uni.reLaunch({
 						url: '/pages/login/login'

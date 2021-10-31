@@ -4,12 +4,12 @@
 			<u-no-network></u-no-network>
 			<view class="login-phone-main">
 				<view class="login-phone-from display_flex align_item">
-					<view class="phone">交易密码：</view>
+					<view class="phone">{{ $t("Trading_Password") }}：</view>
 					<input class="login-phone-from-input" type="password"  placeholder="请输入交易密码" v-model="password" />
 				</view>
 			</view>
 			<view class="login-phone-btns" @click="resetPassword">
-				<view class="login-phone-btn">保存</view>
+				<view class="login-phone-btn">{{ $t('save') }}</view>
 			</view>
 		</view>
 		
@@ -34,7 +34,7 @@
 			// 初始化方法
 			async resetPassword() {
 				if (this.password =='') {
-					this.$utils.toast('请输入交易密码', 'top');
+					this.$utils.toast(this._i18n.t('transaction_password'), 'top');
 					return
 				}
 				let data = {
@@ -42,7 +42,7 @@
 					user_id: uni.getStorageSync('rescodeUserInfo').user_id
 				}
 				const res = await this.$appserve.settransactionpassword(data);
-				this.$utils.toast("交易密码设置成功");
+				this.$utils.toast(this._i18n.t('P_R_S'));
 				setTimeout(() => {
 					uni.navigateBack({
 						delta:1

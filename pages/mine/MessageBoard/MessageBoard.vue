@@ -3,15 +3,15 @@
 		<!-- 选择反馈类型 -->
 		<!-- 请填写您的问题与建议 -->
 		<view class="leixing">
-			<view class="leixing_text">请填写您的问题与建议</view>
+			<view class="leixing_text">{{ $t('Suggestions') }}</view>
 			<view class="uni-textarea">
-				<textarea placeholder-style="color:#CCCCCC" placeholder="感谢您的支持与帮助，我们期待为您带来更优质的服务。" maxlength='140' v-model="jianyi" />
+				<textarea placeholder-style="color:#CCCCCC" :placeholder="$t('Thank_you')" maxlength='140' v-model="jianyi" />
 				</view>
 			
 		</view>
 		<!-- 请填写您的问题与建议 -->
 		<!-- 您的联系方式 -->
-		<view class="btnss" style="width: 70%;margin: 60upx auto;" @click="submint_fangui">提交</view>
+		<view class="btnss" style="width: 70%;margin: 60upx auto;" @click="submint_fangui">{{ $t('submit') }}</view>
 	</view>
 </template>
 
@@ -33,7 +33,7 @@
 			async submint_fangui (){
 				
 				if (this.jianyi == '') {
-					this.$utils.toast('请填写您的问题与建议','top')
+					this.$utils.toast(this._i18n.t("Suggestions"),'top')
 					return
 				} 
 				
@@ -43,7 +43,7 @@
 					user_id:uni.getStorageSync('rescodeUserInfo').user_id,
 				}
 				const res = await this.$appserve.messageboard(data);
-				this.$utils.toast('反馈成功', 'top')
+				this.$utils.toast(this._i18n.t("Feedback_Success"), 'top')
 						setTimeout(()=>{
 							uni.navigateBack({
 								delta:1

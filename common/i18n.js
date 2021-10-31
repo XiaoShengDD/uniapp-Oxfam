@@ -27,12 +27,9 @@ Vue.mixin({
 					})
 				}
 			}
-
 			return this.$t('index')
 		},
 	},
-
-
 
 	onShow() {
 		let locale = this._i18n.locale

@@ -3,30 +3,30 @@
 		<u-no-network></u-no-network>
 		<view class="login-phone-main">
 			<view class="login-phone-from display_flex align_item">
-				<view class="phone">邮箱：</view>
-				<input class="login-phone-from-input" disabled="" type="email" maxlength="11" placeholder="请输入邮箱" v-model="mobile" />
+				<view class="phone">{{ $t('Email') }}：</view>
+				<input class="login-phone-from-input" disabled="" type="email" maxlength="11" :placeholder="$t('P_Email')" v-model="mobile" />
 			</view>
 			<view class="login-phone-from display_flex align_item">
-				<view class="pas">验证码：</view>
-				<input class="login-phone-from-input" type="text" maxlength="8" placeholder="请输入验证码" v-model="code" />
+				<view class="pas">{{ $t('Verification_code') }}：</view>
+				<input class="login-phone-from-input" type="text" maxlength="8" :placeholder="$t('P_Code')" v-model="code" />
 				<view class="login-phone-from-btn" v-if="nums == 60" @click="getVerCode">{{ codeText }}</view>
 				<view class="login-phone-from-btn" v-else>{{ codeText }}</view>
 			</view>
 			<view class="login-phone-from display_flex align_item">
-				<view class="phone">新密码：</view>
-				<input class="login-phone-from-input" type="password" maxlength="8" placeholder="请输入新密码" v-model="password" />
+				<view class="phone">{{ $t('New_password') }}：</view>
+				<input class="login-phone-from-input" type="password" maxlength="8" :placeholder="$t('T_passsword')" v-model="password" />
 			</view>
 			<view class="login-phone-from display_flex align_item">
-				<view class="phone">确认密码：</view>
-				<input class="login-phone-from-input" type="password" maxlength="8" placeholder="请再次输入密码" v-model="newpassword" />
+				<view class="phone">{{ $t('Confirm_Password') }}：</view>
+				<input class="login-phone-from-input" type="password" maxlength="8" :placeholder="$t('T_R_password')" v-model="newpassword" />
 			</view>
 
 		</view>
 		<view class="login-phone-btns" v-if="openId == 1" @click="resetPassword(1)">
-			<view class="login-phone-btn">保存</view>
+			<view class="login-phone-btn">{{ $t('save') }}</view>
 		</view>
 		<view class="login-phone-btns" v-else @click="resetPassword(2)">
-			<view class="login-phone-btn">保存</view>
+			<view class="login-phone-btn">{{ $t('save') }}</view>
 		</view>
 
 	</view>
@@ -44,7 +44,7 @@
 				newpassword: '',
 				mobile: '',
 				code: '',
-				codeText: '获取验证码',
+				codeText: this._i18n.t('getCode'),
 				nums: 60,
 				timer: null,
 				openId: '',
@@ -59,15 +59,16 @@
 			};
 		},
 		onLoad(e) {
+			let _self = this
 			this.openId = e.openId;
 			this.userdetail()
 			if (e.openId == 1) {
 				uni.setNavigationBarTitle({
-					title: '修改交易密码'
+					title: _self._i18n.t('Change_transaction')
 				})
 			} else {
 				uni.setNavigationBarTitle({
-					title: '修改登录密码'
+					title:  _self._i18n.t('Change_Login')
 				})
 			}
 		},
@@ -86,12 +87,12 @@
 			getVerCode() {
 				//获取验证码
 				if (this.mobile.length == "") {
-					this.$utils.toast('请输入邮箱地址', 'top');
+					this.$utils.toast(this._i18n.t('P_Email'), 'top');
 					return false;
 				}
 				
 				if (!/^\w+@[a-z0-9]+\.[a-z]{2,4}$/.test(this.mobile)) {
-					this.$utils.toast('邮箱地址不正确，请重填', 'top');
+					this.$utils.toast(this._i18n.t('L_t_Email'), 'top');
 					return false;
 				}
 				
@@ -99,7 +100,7 @@
 			},
 			// 验证码子组件返回
 			async Captcha() {
-				this.$utils.toast('验证码发送成功', 'top');
+				this.$utils.toast(this._i18n.t('send_success'), 'top');
 				this.getCode()
 			},
 
@@ -108,24 +109,24 @@
 			async resetPassword(type) {
 				
 				if (!/^\w+@[a-z0-9]+\.[a-z]{2,4}$/.test(this.mobile)) {
-					this.$utils.toast('邮箱地址不正确，请重填', 'top');
+					this.$utils.toast(this._i18n.t('L_t_Email'), 'top');
 					return false;
 				}
 				
 				if(this.code == ""){
-					this.$utils.toast('请输入验证码', 'top');
+					this.$utils.toast(this._i18n.t('P_Code'), 'top');
 					return
 				}
 				
 				
 				if(this.password == ""){
-					this.$utils.toast('请输入密码', 'top');
+					this.$utils.toast(this._i18n.t('P_Password'), 'top');
 					return
 				}
 				
 				
 				if (this.password != this.newpassword) {
-					this.$utils.toast('两次密码不一致', 'top');
+					this.$utils.toast(this._i18n.t('inconsistent'), 'top');
 					return
 				}
 				if (type == 1) {
@@ -138,7 +139,7 @@
 					}
 
 					const res = await this.$appserve.transactionpassword(data);
-					this.$utils.toast('修改成功');
+					this.$utils.toast(this._i18n.t('P_R_S'));
 					setTimeout(() => {
 						uni.navigateBack({
 							delta:1
@@ -154,7 +155,7 @@
 					}
 
 					const res = await this.$appserve.loginpassword(data);
-					this.$utils.toast('修改成功');
+					this.$utils.toast(this._i18n.t('P_R_S'));
 					setTimeout(() => {
 						uni.reLaunch({
 							url: '/pages/login/login'
@@ -167,12 +168,12 @@
 			async getCode() {
 				//、短信类型（0注册/1重置密码/2快捷登录）
 				if (this.mobile == '') {
-					this.$utils.toast('请输入邮箱地址', 'top');
+					this.$utils.toast(this._i18n.t('P_Email'), 'top');
 					return;
 				}
 				
 				if (!/^\w+@[a-z0-9]+\.[a-z]{2,4}$/.test(this.mobile)) {
-					this.$utils.toast('邮箱地址不正确，请重填', 'top');
+					this.$utils.toast(this._i18n.t('L_t_Email'), 'top');
 					return;
 				}
 				
@@ -205,10 +206,10 @@
 			doLoop() {
 				this.nums--;
 				if (this.nums > 0) {
-					this.codeText = '重新获取(' + this.nums + 's)';
+					this.codeText = this._i18n.t('Recapture') + '(' + this.nums + 's)';
 				} else {
 					clearInterval(this.timer); //清除js定时器
-					this.codeText = '发送验证码';
+					this.codeText = this._i18n.t('getCode');
 					this.nums = 60; //重置时间
 					this.isGet = true;
 				}

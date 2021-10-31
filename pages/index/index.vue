@@ -2,7 +2,7 @@
 	<view class="index">
 		<view class="mine-main-head">
 			<view class="jibie color_fff">
-				投资级别: {{userinfo.level_value||'无'}}
+				{{ $t("Investment") }}: {{userinfo.level_value || $t("None") }}
 			</view>
 			<view class="jine color_fff" v-if="yueinfo1">
 				{{yueinfo1.coin_value}}U
@@ -29,7 +29,7 @@
 				<image class="touxiang" src="/static/img/s14.png" mode=""></image>
 			</view>
 			<view class="tuandui">
-				<view class="">{{userinfo.user_nick_name}}的团队</view>
+				<view class="">{{userinfo.user_nick_name}} {{ $t("team_name") }}</view>
 				<view class="" style="padding-top: 50upx;text-align: left;">
 					<image src="/static/img/s13.png" mode="" style="margin-right: 30upx;"></image>
 					<text style="position: relative;top: -6upx;">{{teamCount}}</text>
@@ -46,8 +46,8 @@
 				</view>
 			</view>
 			<view class="display_flex flex_start">
-				<view class="chongzhi" @click="clickMenu('/pages/index/mujuanj/mujuanj')">捐款</view>
-				<view class="tixian" @click="clickMenu('/pages/index/mujuan/mujuan')">明细</view>
+				<view class="chongzhi" @click="clickMenu('/pages/index/mujuanj/mujuanj')">{{ $t("Donation") }}</view>
+				<view class="tixian" @click="clickMenu('/pages/index/mujuan/mujuan')">{{ $t("Breakdown") }}</view>
 			</view>
 		</view>
 
@@ -56,10 +56,10 @@
 		<view class="juanzeng ">
 			<view class="display_flex flex_between">
 				<view class="yasen">
-					新闻
+					{{ $t("News") }}
 				</view>
 				<view class="yasen1" @click="tiaozhuan">
-					更多>
+					{{ $t("more") }}>
 				</view>
 			</view>
 			<view class="box" @click="navgopages(i)" v-for="(i,index) in newsList" :key="index">

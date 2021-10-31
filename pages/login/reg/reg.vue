@@ -4,44 +4,44 @@
 		<view class="login_phone" @click="carno.show = false">
 			<view class="login-phone-main">
 				<view class="login-phone-from display_flex align_item">
-					<view class="phone">邮箱：</view>
-					<u-input v-model="mobile" type="text" placeholder="请输入邮箱" :border="false" />
+					<view class="phone">{{ $t('Email') }}：</view>
+					<u-input v-model="mobile" type="text" :placeholder="$t('P_Email')" :border="false" />
 				</view>
 				<view class="login-phone-from display_flex align_item">
-					<view class="pas">验证码：</view>
-					<u-input v-model="code" type="text" :clearable="true" maxlength="8" placeholder="请输入验证码" :border="false" />
+					<view class="pas">{{ $t('Verification_code') }}：</view>
+					<u-input v-model="code" type="text" :clearable="true" maxlength="8" :placeholder="$t('P_Code')" :border="false" />
 					<view style="margin-left: 20upx;" class="login-phone-from-btn" v-if="nums == 60" @click="getVerCode">{{ codeText }}</view>
 					<view class="login-phone-from-btn" v-else>{{ codeText }}</view>
 				</view>
 				<view class="login-phone-from display_flex align_item">
-					<view class="phone">昵称：</view>
-					<u-input v-model="name" type="text" placeholder="请输入昵称" :border="false" />
+					<view class="phone">{{ $t("Nickname") }}：</view>
+					<u-input v-model="name" type="text" :placeholder="$t('T_Nickname')" :border="false" />
 				</view>
 
 
 				<view class="login-phone-from display_flex align_item">
-					<view class="phone">密码：</view>
-					<u-input v-model="password" type="password" placeholder="请输入密码" :border="false" />
+					<view class="phone">{{ $t('Password') }}：</view>
+					<u-input v-model="password" type="password" :placeholder="$t('T_passsword')" :border="false" />
 				</view>
 				<view class="login-phone-from display_flex align_item">
-					<view class="phone">确认密码：</view>
-					<u-input v-model="newpassword" type="password" placeholder="请再次输入密码" :border="false" />
+					<view class="phone">{{$t('Confirm_Password')}}：</view>
+					<u-input v-model="newpassword" type="password" :placeholder="$t('T_R_password')" :border="false" />
 				</view>
 				<view class="login-phone-from display_flex align_item">
-					<view class="phone">邀请码(必填)：</view>
-					<u-input v-model="cordNum" type="text" placeholder="请输入邀请码" :border="false" />
+					<view class="phone">{{$t('Invitation_Code')}}({{ $t('Required_field') }})：</view>
+					<u-input v-model="cordNum" type="text" :placeholder="$t('P_Invitation_Code')" :border="false" />
 				</view>
 
 
 				<u-checkbox-group>
 					<u-checkbox v-model="checked" active-color="#0046AE">
 					</u-checkbox>
-					已阅读并同意
-					<span @click="open(1)">《用户协议》</span>
+					{{ $t('Read') }}
+					<span @click="open(1)">《{{ $t('Agreement') }}》</span>
 				</u-checkbox-group>
 			</view>
 			<view class="login-phone-btns" @click="userregister">
-				<view class="login-phone-btn btnss">确认注册</view>
+				<view class="login-phone-btn btnss">{{ $t('Confirm_Registration') }}</view>
 			</view>
 
 			<view class="yingying" v-if="show"></view>
@@ -76,7 +76,7 @@
 				isDuanxinShow: true,
 				verCode: '',
 				checked: false,
-				codeText: '获取验证码',
+				codeText: this._i18n.t("getCode"),
 				nums: 60,
 				timer: null,
 				openId: '',
@@ -87,7 +87,7 @@
 				sliderVerifyFLag: false,
 				imginfo: '',
 				sf_list: [],
-				wzdl: '我知道了',
+				wzdl: this._i18n.t('I_know'),
 				name: '',
 				cordType: '',
 				cordTypeId: '',
@@ -150,12 +150,12 @@
 			getVerCode() {
 				
 				if (this.mobile == "") {
-					this.$utils.toast('邮箱不正确', 'top');
+					this.$utils.toast(this._i18n.t('P_Email'), 'top');
 					return false;
 				}
 				
 				if (!/^\w+@[a-z0-9]+\.[a-z]{2,4}$/.test(this.mobile)) {
-					this.$utils.toast('请输入邮箱', 'top');
+					this.$utils.toast(this._i18n.t('L_t_Email'), 'top');
 					return;
 				}
 				
@@ -165,7 +165,7 @@
 			},
 			// 验证码子组件返回
 			async Captcha() {
-				this.$utils.toast('验证码发送成功', 'top');
+				this.$utils.toast(this._i18n.t('send_success'), 'top');
 				this.getCode()
 			},
 
@@ -173,12 +173,12 @@
 			// 初始化方法
 			async userregister() {
 				if (this.mobile == "") {
-					this.$utils.toast('邮箱不得为空', 'top');
+					this.$utils.toast(this._i18n.t('P_Email'), 'top');
 					return false;
 				}
 				
 				if (!/^\w+@[a-z0-9]+\.[a-z]{2,4}$/.test(this.mobile)) {
-					this.$utils.toast('请输入正确邮箱地址', 'top');
+					this.$utils.toast(this._i18n.t('L_t_Email'), 'top');
 					return;
 				}
 				//获取验证码
@@ -187,20 +187,20 @@
 				// 	return
 				// }
 				if (this.name == '') {
-					this.$utils.toast('请输入昵称', 'top');
+					this.$utils.toast(this._i18n.t('T_Nickname'), 'top');
 					return
 				}
 
 				if (this.cordNum == '') {
-					this.$utils.toast('请输入邀请码', 'top');
+					this.$utils.toast(this._i18n.t('P_Invitation_Code'), 'top');
 					return
 				}
 				if (this.password =='') {
-					this.$utils.toast('请输入密码', 'top');
+					this.$utils.toast(this._i18n.t('T_passsword'), 'top');
 					return
 				}
 				if (this.password != this.newpassword) {
-					this.$utils.toast('两次密码不一致', 'top');
+					this.$utils.toast(this._i18n.t('inconsistent'), 'top');
 					return
 				}
 				if (this.checked == false) {
@@ -208,7 +208,7 @@
 					return
 				}
 				if (this.password != this.newpassword) {
-					this.$utils.toast('两次密码不一致', 'top');
+					this.$utils.toast(this._i18n.t('inconsistent'), 'top');
 					return
 				}
 				let data = {
@@ -220,7 +220,7 @@
 					invitation_code: this.cordNum
 				}
 				const res = await this.$appserve.userregister(data);
-				this.$utils.toast("注册成功");
+				this.$utils.toast(this._i18n.t('R_success'));
 				setTimeout(() => {
 					uni.navigateBack({
 						delta: 1
@@ -229,8 +229,8 @@
 			},
 			open(e) {
 				if (e == 1) {
-					this.title = '用户协议'
-					this.getByName('用户协议')
+					this.title = this._i18n.t("Agreement") 
+					this.getByName(this._i18n.t("Agreement") )
 					let time = setInterval(() => {
 						if (this.timedjs > 0) {
 							this.timedjs--
@@ -242,12 +242,12 @@
 
 				}
 				if (e == 2) {
-					this.title = '授权协议'
-					this.getByName('授权协议')
+					this.title = this._i18n.t('Authorisation')
+					this.getByName(this._i18n.t('Authorisation'))
 				}
 				if (e == 3) {
-					this.title = '隐私政策'
-					this.getByName('隐私政策')
+					this.title = this._i18n.t('Privacy')
+					this.getByName(this._i18n.t('Privacy'))
 				}
 
 				this.show = true;
@@ -264,11 +264,11 @@
 				////console.log('fa')
 				//、短信类型（0注册/1重置密码/2快捷登录）
 				if (this.mobile == '') {
-					this.$utils.toast('请输入邮箱', 'top');
+					this.$utils.toast(this._i18n.t('P_Email'), 'top');
 					return;
 				}
 				if (!/^\w+@[a-z0-9]+\.[a-z]{2,4}$/.test(this.mobile)) {
-					this.$utils.toast('邮箱号有误，请重填', 'top');
+					this.$utils.toast(this._i18n.t('L_t_Email'), 'top');
 					return;
 				}
 				if (this.isGet) {
@@ -288,10 +288,10 @@
 			doLoop() {
 				this.nums--;
 				if (this.nums > 0) {
-					this.codeText = '重新获取(' + this.nums + 's)';
+					this.codeText = this._i18n.t("Recapture") + '(' + this.nums + 's)';
 				} else {
 					clearInterval(this.timer); //清除js定时器
-					this.codeText = '发送验证码';
+					this.codeText = this._i18n.t("getCode");
 					this.nums = 60; //重置时间
 					this.isGet = true;
 				}

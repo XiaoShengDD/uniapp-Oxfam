@@ -3,7 +3,7 @@
 		<view class="boxs">
 			<image class="bosxImg"  src="/static/img/cg.png" mode=""></image>
 			<view class="btnss" @click="gengai">
-				更改交易密码
+				{{ $t("Change_Login") }}
 			</view>
 		</view>
 	</view>
