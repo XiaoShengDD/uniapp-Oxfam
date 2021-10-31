@@ -149,7 +149,7 @@
 
 			getVerCode() {
 				
-				if (this.mobile.length != 11) {
+				if (this.mobile == "") {
 					this.$utils.toast('邮箱不正确', 'top');
 					return false;
 				}

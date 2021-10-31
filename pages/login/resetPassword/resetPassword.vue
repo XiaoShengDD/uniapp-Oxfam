@@ -5,9 +5,9 @@
 			<input class="uni-input" @input="aaa" placeholder="请输入邮箱" v-model="formdata.phone" />
 		</view>
 		<view class="uni-form-item uni-column">
-			<input type="text" class="uni-input" v-show="!show" name="" placeholder="选择账号" disabled="" @click="xuanze"
+			<input type="text" class="uni-input" name="" placeholder="选择账号" disabled="" @click="xuanze"
 				v-model="shenfen" />
-			<u-select v-show="show" :list="list" @confirm="confirm"></u-select>
+			<u-select v-model="show" :list="list" @confirm="confirm"></u-select>
 		</view>
 
 		<view class="uni-form-item uni-column">
@@ -108,8 +108,8 @@
 				}
 				// Register 忘记登录密码：ResetPwd 修改登录密码：ModifyPwd 忘记交易密码：ResetTranPwd 修改交易密码：ModifyTranPwd
 				let data = {
-					user_mobile_phone: this.mobile,
-					sms_biz_type: "Register",
+					user_mobile_phone: this.formdata.phone,
+					sms_biz_type: "ResetPwd",
 				};
 				const res = await this.$appserve.smscode(data);
 				this.formdata.task_id = res.data.task_id
@@ -149,7 +149,6 @@
 				}
 				const res = await this.$appserve.userList(data);
 				if (res.data.length > 0) {
-					this.show = true
 					res.data.forEach((item) => {
 						item.value = item.user_id
 						item.label = item.user_nick_name

@@ -21,8 +21,8 @@
 			{{ $t("pages-login-login") }}
 		</view>
 		<view class="links">
-			<view class="link-highlight" @tap="gotoRegistration">{{ i18n.L_Register }}</view>
-			<view class="link-highlight" @tap="gotoResetPassword">{{ i18n.L_Forgotten }}</view>
+			<view class="link-highlight" @tap="gotoRegistration">{{ $t('L_Register') }}</view>
+			<view class="link-highlight" @tap="gotoResetPassword">{{ $t('L_Forgotten') }}</view>
 		</view>
 	</view>
 </template>
@@ -74,7 +74,7 @@
 				// this.$router.go(0)
 			},
 			aaa(e){
-				if(!/^\w+@[a-z0-9]+\.[a-z]{2,4}$/.test(e.detail.value)){
+				if(/^\w+@[a-z0-9]+\.[a-z]{2,4}$/.test(e.detail.value)){
 					this.userList()
 				}
 			},
