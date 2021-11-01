@@ -14,30 +14,30 @@
 			<view class="wallet-flash-record-cell display_flex flex_between align_item" v-for="(item, index) in record_arr" :key="index">
 				<view class="">
 					<view class="wallet-flash-record-cell-title font_size_28 color_222" v-if="item.wallet_record_type=='Recharge'">
-						充值
+						{{$t('recharge')}}
 					</view>
 					<view class="wallet-flash-record-cell-title font_size_28 color_222" v-if="item.wallet_record_type=='Withdrawal'">
-						提现
+							{{$t('withdraw')}}
 					</view>
 					<view class="wallet-flash-record-cell-title font_size_28 color_222" v-if="item.wallet_record_type=='DailyDelivery'">
-						日送
+						{{$t('frozen')}}
 					</view>
 					<view class="wallet-flash-record-cell-title font_size_28 color_222" v-if="item.wallet_record_type=='DirectReward'">
-						直推奖励
+						{{$t('direct_reward')}}
 					</view>
 					<view class="wallet-flash-record-cell-title font_size_28 color_222" v-if="item.wallet_record_type=='TeamReward'">
-						团队奖励
+						{{$t('team_reward')}}
 					</view>
 					<view class="wallet-flash-record-cell-foot font_size_26" style="margin: 10upx 0;">
-						<text style="color: #4C00AF ;" v-if="item.wallet_record_status == 'Pending'">等待审核</text>
-						<text style="color: #0046AE ;" v-if="item.wallet_record_status == 'Approved'">已审核</text>
-						<text style="color: #4C00AF ;" v-if="item.wallet_record_status == 'Refused'">拒绝</text>
+						<text style="color: #4C00AF ;" v-if="item.wallet_record_status == 'Pending'">{{$t('pending')}}</text>
+						<text style="color: #0046AE ;" v-if="item.wallet_record_status == 'Approved'">{{$t('approved')}}</text>
+						<text style="color: #4C00AF ;" v-if="item.wallet_record_status == 'Refused'">{{$t('refused')}}</text>
 					</view>
 					<view class="wallet-flash-record-cell-date color_9B9B9B">
 						{{item.update_time}}
 					</view>
 					<view class="wallet-flash-record-cell-date color_9B9B9B" v-if="item.wallet_record_type=='Withdrawal'">
-						手续费：{{item.wallet_withdrawal_fee}}
+						{{$t('fee')}}：{{item.wallet_withdrawal_fee}}
 					</view>
 				</view>
 				<view class="">

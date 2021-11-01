@@ -30,7 +30,7 @@
 			<u-checkbox v-model="checked" active-color="#0046AE">
 			</u-checkbox>
 			{{ $t('Read') }}
-			<span @click="open(1)">《{{ $t('Agreement') }}》</span>
+			<span>《{{ $t('Agreement') }}》</span>
 		</u-checkbox-group>
 		
 		<view class="btnss" @click="submit">
@@ -277,7 +277,8 @@
 		border-radius: 30upx;
 		background-color: #fbfbfb;
 		position: relative;
-
+		display: flex;
+		align-items: center;
 		.uni-input {
 			font-size: 30upx;
 			padding: 7px 0;

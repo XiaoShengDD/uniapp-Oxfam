@@ -37,7 +37,7 @@
 					<u-checkbox v-model="checked" active-color="#0046AE">
 					</u-checkbox>
 					{{ $t('Read') }}
-					<span @click="open(1)">《{{ $t('Agreement') }}》</span>
+					<span>《{{ $t('Agreement') }}》</span>
 				</u-checkbox-group>
 			</view>
 			<view class="login-phone-btns" @click="userregister">
@@ -363,6 +363,8 @@
 		height: 106rpx;
 		border-bottom: 2upx solid #eeeeee;
 		padding: 0 30upx;
+		display: flex;
+		align-items: center;
 	}
 
 	.login-phone-from:last-of-type {

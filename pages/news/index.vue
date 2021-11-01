@@ -8,7 +8,7 @@
 					<text>{{item.coin_name}}</text>
 				</view>
 				<view class="jiayi font_size_26" @click="navgopages(item,1)">
-					交易记录
+					{{ $t('trade_history') }}
 				</view>
 			</view>
 			<!-- 4C00AF  4C00AF -->
@@ -21,13 +21,13 @@
 			
 			<view class="xia display_flex flex_between">
 				<view class=" font_size_22 color_666" >
-					<text style="margin-right: 10upx;">冻结</text> <u-count-to font-size="30" color="#666" :start-val="30" :end-val="item.coin_freeze_value" :decimals="2"></u-count-to> 
+					<text style="margin-right: 10upx;">{{ $t('frozen') }}</text> <u-count-to font-size="30" color="#666" :start-val="30" :end-val="item.coin_freeze_value" :decimals="2"></u-count-to> 
 					<text style="margin-left: 10upx;">{{item.coin_name}}</text>
 				</view>
 				
 				<view class="display_flex flex_start">
-					<view class="chongzhi" v-if="item.coin_name =='USDT'" @click="navgopages(item,2)">充值</view>
-					<view class="tixian" @click="navgopages(item,3)">提现</view>
+					<view class="chongzhi" v-if="item.coin_name =='USDT'" @click="navgopages(item,2)">{{ $t('recharge') }}</view>
+					<view class="tixian" @click="navgopages(item,3)">{{ $t('withdraw') }}</view>
 				</view>
 			</view>
 			

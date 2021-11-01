@@ -3,7 +3,7 @@
 		<u-no-network></u-no-network>
 		<view class="box">
 			<view class="shangchaun font_size_32 color_222">
-				充值币种
+				{{ $t('recharge_currency') }}
 			</view>
 			<view class="czsl display_flex flex_wrap ">
 				<view class="activeclass">{{Bid.coin_name}}</view>
@@ -11,7 +11,7 @@
 		</view>
 		<view class="box">
 			<view class="shangchaun font_size_32 color_222">
-				充值数值
+				{{ $t('recharge_quantity') }}
 			</view>
 			<view class="czsl display_flex flex_wrap ">
 				<view class="" :class="{'activeclass':actions==100}" @click="actions = 100">100U</view>
@@ -28,7 +28,7 @@
 
 		<view class="box">
 			<view class="shangchaun font_size_32 color_222">
-				充值二维码
+				{{ $t('recharge_QRcode') }}
 			</view>
 			<!-- @click="yulan(url)" -->
 			<image class="erweima" :src="dizhi.recharge_image_url" @click="saveImgToLocal(dizhi.recharge_image_url)" mode=""></image>
@@ -40,7 +40,7 @@
 
 		<view class="box">
 			<view class="shangchaun font_size_32 color_222">
-				上传凭证
+				{{ $t('upload_voucher') }}
 			</view>
 			<u-toast ref="uToast" />
 			<u-upload ref="uUpload" name="image" max-count="1" :action="action" :auto-upload="true" @on-progress="imgprogress"
@@ -48,15 +48,18 @@
 		</view>
 
 		<view class="zhuyi">
-			<view>充值注意事项</view>
-			<view>1.请确认充币地址是TRC20型T开头的地址。 </view>
-			<view>2.最小充币金额100U。小于最小充币金额的将不会到账且无法退回。</view>
-			<view>3.请勿向上述地址充值任何非USDT资产（链类型：TRC20）,否则资产不可找回。 </view>
-			<view>4.您的充值地址不会经常改变，可以重复充值，如有改变，将会在充值页面给予通知。 </view>
-			<view>5.请务必确认您的电脑，手机及浏览器安全，防止信息泄露或被篡改。</view>
+		
+			<view>{{ $t('donation_notes') }}</view>
+			<view>{{ $t('donation_notes1') }}</view>
+			<view>{{ $t('donation_notes2') }}</view>
+			<view>{{ $t('donation_notes3') }}</view>
+			<view>{{ $t('donation_notes4') }}</view>
+			<view>{{ $t('donation_notes5') }}</view>
+			<view>{{ $t('donation_notes6') }}</view>
+			
 		</view>
 		<view class="btnss" @click="chongzhi">
-			立即充值
+				{{ $t('recharge_now') }}
 		</view>
 	</view>
 </template>

@@ -2,12 +2,12 @@
 	<view class="container">
 		<u-no-network></u-no-network>
 		<view class="inputbox display_flex flex_between">
-			<u-input style="width: 70%;" v-model="value1" :type="type" :border="false" placeholder="请输入或长按粘贴地址" />
+			<u-input style="width: 70%;" v-model="value1" :type="type" :border="false" :placeholder="$t('address_placeholder')" />
 			<view style="margin-left: 20upx;" @click="changyong(1)" v-if="list.length>0">
-				常用地址
+				{{ $t('usual_address') }}
 			</view>
 			<view style="margin-left: 20upx;" @click="changyong(4)" v-if="list.length==0">
-				添加常用地址
+				{{ $t('Add_common_address') }}
 			</view>
 		</view>
 		<u-popup v-model="show" mode="center" width="500rpx" height="400upx" @change="radioGroupChange">
@@ -18,25 +18,26 @@
 			</u-radio-group>
 		</u-popup>
 		<view class="inputbox display_flex flex_between">
-			<u-input v-model="value2" :type="type" :border="false" placeholder="请输入提现额度" />
+			<u-input v-model="value2" :type="type" :border="false" :placeholder="$t('quota_placeholder')" />
 			<view class="" @click="changyong(2)">
-				全部
+				{{ $t('all') }}
 			</view>
 		</view>
 		<view class="inputbox display_flex flex_between">
-			<u-input v-model="value3" type="password" :border="false" placeholder="请输入资金密码" />
+			<u-input v-model="value3" type="password" :border="false" :placeholder="$t('password_placeholder')" />
 			<view class="" @click="changyong(3)">
-				忘记支付密码
+				{{ $t('forgot_payment_password') }}
 			</view>
 		</view>
 
 		<view class="zhuyi" v-if="Bid.coin_name == 'USDT'">
-			<view>USDT提现注意事项</view>
-			<view>1.请确认您的地址是TRC20型T开头的地址。 </view>
-			<view>2.提现手续费为10%。</view>
-			<view>3.最少提币金额100U。小于最小提币金额的将不会到账且无法退回。 </view>
-			<view>4.请务必确认目标地址是否存在且被激活，否则将会导致提币失败,且资产不可找回。 </view>
-			<view>5.请务必确认您的电脑，手机及浏览器安全，防止信息泄露或被篡改。</view>
+			<view>{{ $t('USDT_notes') }}</view>
+			<view>{{ $t('USDT_notes1') }}</view>
+			<view>{{ $t('USDT_notes2') }}</view>
+			<view>{{ $t('USDT_notes3') }}</view>
+			<view>{{ $t('USDT_notes4') }}</view>
+			<view>{{ $t('donation_notes5') }}</view>
+			<view>{{ $t('USDT_notes6') }}</view>
 		</view>
 		<view class="zhuyi" v-if="Bid.coin_name == 'DOGZ'">
 			<view>DOGZ提现注意事项 </view>
@@ -47,31 +48,26 @@
 			<view>5.请务必确认您的电脑，手机及浏览器安全，防止信息泄露或被篡改。</view>
 		</view>
 		<view class="zhuyi" v-if="Bid.coin_name == 'SHIBI'">
-			<view>SHIB提现注意事项 </view>
-			<view>1.请准确输入您的提现地址。 </view>
-			<view>2.无提现手续费。</view>
-			<view>3.最少提币金额100万SHIB。小于最小提币金额的将不会到
-				账且无法退回。 </view>
-			<view>4，请务必确认目标地址是否存在且被激活，否则将会导致
-				提币失败,且资产不可找回。</view>
-			<view>5.请务必确认您的电脑，手机及浏览器安全，防止信息泄露
-				或被篡改。</view>
-			<view>6.常用地址为收U的账户地址</view>
+			<view>{{ $t('SHIB_notes') }}</view>
+			<view>{{ $t('SHIB_notes1') }}</view>
+			<view>{{ $t('SHIB_notes2') }}</view>
+			<view>{{ $t('SHIB_notes3') }}</view>
+			<view>{{ $t('USDT_notes4') }}</view>
+			<view>{{ $t('donation_notes5') }}</view>
+			<view>{{ $t('USDT_notes6') }}</view>
 
 		</view>
-		<view class="zhuyi" v-if="Bid.coin_name == 'AKITA'">
-			<view>AKITA提现注意事项 </view>
-			<view>1.请准确输入您的提现地址。 </view>
-			<view>2.无提现手续费 </view>
-			<view>3.最少提币金额100万AKITA。小于最小提币金额的将不会到
-				账且无法退回。 </view>
-			<view>4，请务必确认目标地址是否存在且被激活，否则将会导致
-				提币失败,且资产不可找回。</view>
-			<view>5.请务必确认您的电脑，手机及浏览器安全，防止信息泄露
-				或被篡改。</view>
+		<view class="zhuyi" v-if="Bid.coin_name == 'NFT'">
+			<view>{{ $t('NFT_notes') }}</view>
+			<view>{{ $t('USDT_notes1') }}</view>
+			<view>{{ $t('NFT_notes2') }}</view>
+			<view>{{ $t('NFT_notes3') }}</view>
+			<view>{{ $t('USDT_notes4') }}</view>
+			<view>{{ $t('donation_notes5') }}</view>
+			<view>{{ $t('USDT_notes6') }}</view>
 		</view>
 		<view class="btnss" @click="tixian">
-			提现
+			{{$t('withdraw')}}
 		</view>
 	</view>
 </template>
@@ -111,7 +107,7 @@
 				var d = new Date().getDay();
 				
 				if(d != 4 && d != 5){
-					this.$utils.toast('提现日为周四或者周五，请耐心等待')
+					this.$utils.toast(this._i18n.t('USDT_notes6'))
 					return false
 				}
 				
@@ -121,7 +117,7 @@
 				}
 				
 				if (this.value2 == "") {
-					this.$utils.toast('请输入金额')
+					this.$utils.toast(this._i18n.t('amount'))
 					return false
 				}
 				
