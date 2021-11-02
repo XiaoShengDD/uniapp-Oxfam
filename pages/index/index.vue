@@ -8,7 +8,7 @@
 				{{yueinfo1.coin_value}}U
 			</view>
 			<view class="bordersss display_flex flex_between" v-if="yueinfo2">
-				<view v-for="item in yueinfo2" :key="item.coin_name" class="bordersssview">
+				<view v-for="(item,index) in yueinfo2" :key="index" class="bordersssview">
 					<view>{{item.coin_name}}</view>
 					<view class="">{{item.coin_value}}</view>
 				</view>
@@ -142,8 +142,9 @@
 			},
 			// 初始化方法
 			async userwallet() {
-				this.yueinfo1 = {}
-				this.yueinfo2 = []
+				// this.yueinfo1 = {}
+				// this.yueinfo2 = []
+				const json = []
 				let data = {
 					user_id: uni.getStorageSync('rescodeUserInfo').user_id
 				}
@@ -154,10 +155,10 @@
 					if(item.coin_name == 'USDT'){
 						this.yueinfo1 = item
 					}else{
-						this.yueinfo2.push(item)
+						json.push(item)
 					}
 				})
-				
+				this.yueinfo2 = json
 				this.yueinfo = res.data
 
 			},
@@ -200,6 +201,7 @@
 
 			// 用户详情
 			async userdetail() {
+				console.log(1)
 				let data = {
 					user_id: uni.getStorageSync('rescodeUserInfo').user_id
 				}

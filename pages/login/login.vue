@@ -14,7 +14,8 @@
 			<u-select v-model="show" :list="list" @confirm="confirm"></u-select>
 		</view>
 		<view class="uni-form-item uni-column">
-			<input type="password" class="uni-input" name="" :placeholder="$t('P_Password')" v-model="formdata.password" />
+			<input type="password" class="uni-input" name="" :placeholder="$t('P_Password')"
+				v-model="formdata.password" />
 		</view>
 
 		<view class="btnss" @click="submit">
@@ -34,25 +35,31 @@
 				list: [],
 				show: false,
 				shenfen: '',
-				lang:"",
+				lang: "",
 				formdata: {
 					"phone": "",
 					"password": "",
 					"type": ''
 				},
-				messages:{
-					P_Email:"",
-					P_Account:""
+				messages: {
+					P_Email: "",
+					P_Account: ""
 				}
 			}
 		},
 
 		onShow() {
-			if(uni.getStorageSync("language") == "en-CN"){
+			if (uni.getStorageSync("language")) {
+				if (uni.getStorageSync("language") == "en-CN") {
+					this.lang = "English"
+				} else {
+					this.lang = "中文"
+				}
+			} else {
+				uni.setStorageSync('language', 'en-CN')
 				this.lang = "English"
-			}else{
-				this.lang = "中文"
 			}
+
 			this.formdata = {
 				phone: "",
 				password: "",
@@ -61,34 +68,34 @@
 		},
 		methods: {
 			// 语言切换
-			changeLanguage(){
-				if(uni.getStorageSync("language") == "en-CN"){
-					uni.setStorageSync('language','en-US')
+			changeLanguage() {
+				if (uni.getStorageSync("language") == "en-CN") {
+					uni.setStorageSync('language', 'en-US')
 					this.lang = "中文"
 					this._i18n.locale = 'en-US'
-				}else{
-					uni.setStorageSync('language','en-CN')
+				} else {
+					uni.setStorageSync('language', 'en-CN')
 					this.lang = "English"
 					this._i18n.locale = 'en-CN'
 				}
 				this.$router.go(0)
 			},
-			aaa(e){
-				if(/^\w+@[a-z0-9]+\.[a-z]{2,4}$/.test(e.detail.value)){
+			aaa(e) {
+				if (/^\w+@[a-z0-9]+\.[a-z]{2,4}$/.test(e.detail.value)) {
 					this.userList()
 				}
 			},
 
 			xuanze() {
-					
+
 				if (this.formdata.phone == "") {
 					this.$utils.toast(this._i18n.t('P_Email'))
-					
+
 				} else {
-					if(!/^\w+@[a-z0-9]+\.[a-z]{2,4}$/.test(this.formdata.phone)){
+					if (!/^\w+@[a-z0-9]+\.[a-z]{2,4}$/.test(this.formdata.phone)) {
 						this.$utils.toast(this._i18n.t('L_t_Email'))
 						return false
-					}else{
+					} else {
 						if (this.list.length > 0) {
 							this.show = true
 						} else {
@@ -173,7 +180,7 @@
 					url: 'reg/reg'
 				});
 			},
-			gotoResetPassword(){
+			gotoResetPassword() {
 				uni.navigateTo({
 					url: 'resetPassword/resetPassword'
 				});
@@ -190,14 +197,14 @@
 <style lang="scss" scoped>
 	$color-primary: #007AFF;
 
-	.changeLanguage{
+	.changeLanguage {
 		text-decoration: none;
 		position: absolute;
-		top:0;
+		top: 0;
 		right: 50upx;
 	}
-	
-	.changeLanguage:hover:active{
+
+	.changeLanguage:hover:active {
 		color: #007AFF;
 	}
 
@@ -217,7 +224,8 @@
 			width: 120upx;
 			margin: 0 0 20upx;
 		}
-		view{
+
+		view {
 			font-size: 32upx;
 			margin-bottom: 88upx;
 		}
@@ -249,6 +257,7 @@
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
+
 		view {
 			display: inline-block;
 			vertical-align: top;

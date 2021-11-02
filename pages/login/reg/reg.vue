@@ -447,4 +447,8 @@
 		align-items: center;
 		justify-content: center;
 	}
+	
+	/deep/.uni-input-placeholder {
+		top:16upx !important;
+	}
 </style>

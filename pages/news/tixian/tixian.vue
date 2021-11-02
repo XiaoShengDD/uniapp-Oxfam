@@ -107,7 +107,7 @@
 				var d = new Date().getDay();
 				
 				if(d != 4 && d != 5){
-					this.$utils.toast(this._i18n.t('USDT_notes6'))
+					this.$utils.toast(this._i18n.t('USDT_notes_t'))
 					return false
 				}
 				

@@ -125,6 +125,7 @@ export default {
 		USDT_notes4: '4.Please make sure that the target address exists and is activated, otherwise the withdrawal will fail and the assets will not be recovered.',
 		//donation_notes5: '5.请务必确认您的电脑，手机及浏览器安全，防止信息泄露或被篡改。',
 		USDT_notes6: '6.Withdrawal requests are submitted on Thursdays and Fridays, but no withdrawals are allowed at other times.',
+		USDT_notes_t: 'Withdrawal requests are submitted on Thursdays and Fridays, but no withdrawals are allowed at other times.',
 		//------SHIB提现--------
 		SHIB_notes: 'SHIB Withdrawal Notes',
 		SHIB_notes1: '1.If your withdrawal amount is between 1 million and 5 million, please make sure your address is a TRC20 type address for receiving USDT; if your withdrawal amount is more than 5 million, please make sure your address is an ERC20 type address.',
@@ -326,6 +327,7 @@ export default {
 		USDT_notes4: '4.请务必确认目标地址是否存在且被激活，否则将会导致提币失败,且资产不可找回。',
 		//donation_notes5: '5.请务必确认您的电脑，手机及浏览器安全，防止信息泄露或被篡改。',
 		USDT_notes6: '6.提交提现申请时间为每周四、周五，其他时间不允许提现。',
+		USDT_notes_t: '提交提现申请时间为每周四、周五，其他时间不允许提现。',
 		//------SHIB提现--------
 		//----前台校验100w-500w 10% 500w以上 5%，最小提现金额是100w 
 		//----后台系统需要计算距离最后一次充值的天数

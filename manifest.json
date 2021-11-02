@@ -1,6 +1,6 @@
 {
     "name" : "Oxfam",
-    "appid" : "__UNI__6030111",
+    "appid" : "__UNI__A3D699F",
     "description" : "",
     "versionName" : "1.0.0",
     "versionCode" : "100",
@@ -92,5 +92,8 @@
         "devServer" : {
             "disableHostCheck" : true
         }
+    },
+    "quickapp-webview" : {
+        "icon" : ""
     }
 }
