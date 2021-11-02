@@ -38,11 +38,11 @@
 		</view>
 		<u-notice-bar style="width: 92%;margin: 0 auto;" border-radius="30" mode="vertical" :duration="3000" type="none"
 			color="#4c00af" bg-color="#f5f5f5" :list="list"></u-notice-bar>
-		<view class="juanzeng display_flex flex_between">
+<!-- 		<view class="juanzeng display_flex flex_between">
 			<view class="display_flex flex_start">
 				<image class="touxiang1" src="/static/img/s15.png" mode=""></image>
 				<view class="" style="line-height: 100upx;margin-left: 30upx;font-weight: 600;">
-					乐施募捐
+					SHIBA募捐
 				</view>
 			</view>
 			<view class="display_flex flex_start">
@@ -50,7 +50,7 @@
 				<view class="tixian" @click="clickMenu('/pages/index/mujuan/mujuan')">{{ $t("Breakdown") }}</view>
 			</view>
 		</view>
-
+ -->
 
 
 		<view class="juanzeng ">

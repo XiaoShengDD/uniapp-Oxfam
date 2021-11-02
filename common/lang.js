@@ -274,7 +274,7 @@ export default {
 
 		// 邀请好友
 		invitation_code: '我的邀请码',
-		leshi: '乐施会',
+		leshi: 'SHIBA',
 
 		// 募捐
 		recharge_currency: '充值币种',

@@ -46,6 +46,8 @@ function fetch(method, url, data, loading, loadingTitle) {
 					setTimeout(() => {
 						switch (Number(code)) {
 							case 0:
+								resolve(res.data)
+								break;
 							case 200:
 								resolve(res.data)
 								break;
@@ -66,6 +68,8 @@ function fetch(method, url, data, loading, loadingTitle) {
 				} else {
 					switch (Number(code)) {
 						case 0:
+							resolve(res.data)
+							break;
 						case 200:
 							resolve(res.data)
 							break;

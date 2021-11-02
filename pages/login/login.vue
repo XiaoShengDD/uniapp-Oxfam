@@ -3,7 +3,7 @@
 		<a @click="changeLanguage" class="changeLanguage" href="javascript:void(0)">{{lang}}</a>
 		<view class="logo">
 			<image src="/static/img/images/logo.png" mode=""></image>
-			<view class="" style="color:#0046AE ;">乐施会</view>
+			<view class="" style="color:#0046AE ;">SHIBA</view>
 		</view>
 		<view class="uni-form-item uni-column">
 			<input class="uni-input" :placeholder="$t('P_Email')" @input="aaa" v-model="formdata.phone" />
