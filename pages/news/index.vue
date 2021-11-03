@@ -81,7 +81,7 @@
 				}else{
 					
 					if(id.coin_name == "GLZ"){
-						this.$utils.toast("该币种暂不支持体现，敬请期待");
+						this.$utils.toast("该币种暂不支持提现，敬请期待");
 						return false
 					}
 					

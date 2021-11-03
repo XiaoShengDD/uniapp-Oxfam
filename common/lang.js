@@ -206,7 +206,7 @@ export default {
 
 		home: '首页',
 		trade: "交易",
-		consult: "咨询",
+		consult: "资讯",
 		mine: "我的",
 
 		// title

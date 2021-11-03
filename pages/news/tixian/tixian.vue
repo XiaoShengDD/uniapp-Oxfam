@@ -39,14 +39,14 @@
 			<view>{{ $t('donation_notes5') }}</view>
 			<view>{{ $t('USDT_notes6') }}</view>
 		</view>
-		<view class="zhuyi" v-if="Bid.coin_name == 'DOGZ'">
+	<!-- 	<view class="zhuyi" v-if="Bid.coin_name == 'DOGZ'">
 			<view>DOGZ提现注意事项 </view>
 			<view>1.请准确输入您的提现地址。 </view>
 			<view>2.无提现手续费。</view>
 			<view>3.最少提币金额10万DOGZ。小于最小提币金额的将不会到账且无法退回。 </view>
 			<view>4，请务必确认目标地址是否存在且被激活，否则将会导致提币失败,且资产不可找回。 </view>
 			<view>5.请务必确认您的电脑，手机及浏览器安全，防止信息泄露或被篡改。</view>
-		</view>
+		</view> -->
 		<view class="zhuyi" v-if="Bid.coin_name == 'SHIBI'">
 			<view>{{ $t('SHIB_notes') }}</view>
 			<view>{{ $t('SHIB_notes1') }}</view>

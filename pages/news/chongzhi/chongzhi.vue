@@ -49,7 +49,7 @@
 
 		<view class="zhuyi">
 		
-			<view>{{ $t('donation_notes') }}</view>
+			<view>{{ $t('recharge_notes') }}</view>
 			<view>{{ $t('donation_notes1') }}</view>
 			<view>{{ $t('donation_notes2') }}</view>
 			<view>{{ $t('donation_notes3') }}</view>
