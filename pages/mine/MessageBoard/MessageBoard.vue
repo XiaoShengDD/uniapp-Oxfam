@@ -98,7 +98,6 @@
 
 	/* 顶部结束 */
 	.leixing_text {
-		height: 44upx;
 		font-size: 32upx;
 		font-weight: 600;
 		color: rgba(34, 34, 34, 1);

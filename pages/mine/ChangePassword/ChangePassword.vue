@@ -7,7 +7,7 @@
 				<input class="login-phone-from-input" disabled="" type="email" maxlength="11" :placeholder="$t('P_Email')" v-model="mobile" />
 			</view>
 			<view class="login-phone-from display_flex align_item">
-				<view class="pas">{{ $t('Verification_code') }}：</view>
+				<view class="phone">{{ $t('Verification_code') }}：</view>
 				<input class="login-phone-from-input" type="text" maxlength="8" :placeholder="$t('P_Code')" v-model="code" />
 				<view class="login-phone-from-btn" v-if="nums == 60" @click="getVerCode">{{ codeText }}</view>
 				<view class="login-phone-from-btn" v-else>{{ codeText }}</view>
@@ -68,7 +68,7 @@
 				})
 			} else {
 				uni.setNavigationBarTitle({
-					title:  _self._i18n.t('Change_Login')
+					title: _self._i18n.t('Change_Login')
 				})
 			}
 		},
@@ -222,7 +222,11 @@
 	page {
 		background: #ffffff !important;
 	}
-
+	
+	.phone{
+		max-width: 160upx;
+	}
+	
 	/* /deep/ .u-model__content{
 	height: 600rpx;
 	overflow-y: scroll !important;

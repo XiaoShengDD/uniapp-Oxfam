@@ -14,14 +14,14 @@
 			<!-- 4C00AF  4C00AF -->
 			<view class="xia display_flex flex_between">
 				<view class="zongshu font_size_28" >
-					 <u-count-to color="#4200A8" :start-val="30" :end-val="item.coin_value" :decimals="2"></u-count-to>
+					 <u-count-to color="#4200A8" :end-val="item.coin_value" :decimals="2"></u-count-to>
 					{{item.coin_name}}
 				</view>
 			</view>
 			
 			<view class="xia display_flex flex_between">
 				<view class=" font_size_22 color_666" >
-					<text style="margin-right: 10upx;">{{ $t('frozen') }}</text> <u-count-to font-size="30" color="#666" :start-val="30" :end-val="item.coin_freeze_value" :decimals="2"></u-count-to> 
+					<text style="margin-right: 10upx;">{{ $t('frozen') }}</text> <u-count-to font-size="30" color="#666"  :end-val="item.coin_freeze_value" :decimals="2"></u-count-to> 
 					<text style="margin-left: 10upx;">{{item.coin_name}}</text>
 				</view>
 				
@@ -130,8 +130,23 @@
 		margin: 40upx auto;
 	}
 	.box view{
-		line-height: 60upx;
+		/* display: flex; */
+		/* align-items: center; */
+		/* padding: 10upx 20upx; */
 	}
+
+	.box .chongzhi{
+		display: flex;
+		align-items: center;
+		padding: 10upx 20upx;
+	}
+	
+	.box .tixian{
+		display: flex;
+		align-items: center;
+		padding: 10upx 15upx;
+	}
+
 	.biaoti{
 		font-weight: 600;
 	}

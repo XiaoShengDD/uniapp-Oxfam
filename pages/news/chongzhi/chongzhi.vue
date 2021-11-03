@@ -19,7 +19,7 @@
 				<view :class="{'activeclass':actions==500}" @click="actions = 500">500U</view>
 				<view :class="{'activeclass':actions==1000}" @click="actions = 1000">1000U</view>
 				<view :class="{'activeclass':actions==10000}" @click="actions = 10000" v-if="userinfo.user_cion_switch != 'OFF'">10000U</view>
-				<view class="zanweikaofang" v-else>您暂无此权益</view>
+				<view class="zanweikaofang" v-else>{{ $t('text1') }}</view>
 			</view>
 
 		</view>
@@ -34,7 +34,7 @@
 			<image class="erweima" :src="dizhi.recharge_image_url" @click="saveImgToLocal(dizhi.recharge_image_url)" mode=""></image>
 			<view class="display_flex flex_start">
 				<view class="color_222 font_size_28 over_one" style="max-width: 80%;margin-right: 20upx;">{{dizhi.recharge_address}}</view>
-				<view class="" style="color: #0046ae;" @click="copyTap(dizhi.recharge_address)">复制</view>
+				<view class="" style="color: #0046ae;" @click="copyTap(dizhi.recharge_address)">{{ $t('copy') }}</view>
 			</view>
 		</view>
 

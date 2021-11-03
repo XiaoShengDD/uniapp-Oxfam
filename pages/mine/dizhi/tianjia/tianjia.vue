@@ -5,7 +5,7 @@
 			<view class="login-phone-main">
 				<view class="login-phone-from display_flex align_item">
 					<view class="phone">{{ $t('usual_address') }}：</view>
-					<input class="login-phone-from-input" type="text"  placeholder="请输入常用地址" v-model="password" />
+					<input class="login-phone-from-input" type="text"  :placeholder="$t('text3')" v-model="password" />
 				</view>
 			</view>
 			<view class="login-phone-btns" @click="userdetail">
