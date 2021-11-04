@@ -152,20 +152,20 @@
 			"path": "pages/mine/dizhi/dizhi",
 			"style": {
 				"navigationBarTitleText": "常用地址",
-				"enablePullDownRefresh": false
-				// "app-plus": {
-				// 	"titleNView": {
-				// 		"buttons": [ //原生标题栏按钮配置,
-				// 			{
-				// 				"text": "添加", //原生标题栏增加分享按钮，点击事件可通过页面的 onNavigationBarButtonTap 函数进行监听
-				// 				"fontSize": "14",
-				// 				"float": "right",
-				// 				"color": "rgba(0,0,0,1)",
-				// 				"width": "60px"
-				// 			}
-				// 		]
-				// 	}
-				// }
+				"enablePullDownRefresh": false,
+				"app-plus": {
+					"titleNView": {
+						"buttons": [ //原生标题栏按钮配置,
+							{
+								"text": "添加", //原生标题栏增加分享按钮，点击事件可通过页面的 onNavigationBarButtonTap 函数进行监听
+								"fontSize": "14",
+								"float": "right",
+								"color": "rgba(0,0,0,1)",
+								"width": "60px"
+							}
+						]
+					}
+				}
 			}
 		}
 	    ,{

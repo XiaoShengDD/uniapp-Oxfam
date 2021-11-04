@@ -16,7 +16,7 @@
 					
 					<view class="mine-code-share">
 						<!-- @tap="download" 保存二维码 -->
-						<view class="mine-code-share1">SHIBA</view>
+						<view class="mine-code-share1">SHIB</view>
 						{{$t('invitation_code')}}:{{userinfo.user_invitation_code}}
 					</view>
 				</view>

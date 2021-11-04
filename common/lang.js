@@ -2,13 +2,13 @@ export default {
 	"en-US": {
 		home: 'home',
 		trade: "trade",
-		consult: "consult",
+		consult: "news",
 		mine: "mine",
 
 		// title 
 		"pages-login-login": "login",
 		"pages-news-index": "Trading",
-		"pages-zixun-index": "Enquiries",
+		"pages-zixun-index": "news",
 		"pages-index-tuandui-tuandui": "My Team",
 		"pages-index-mujuanj-mujuanj": "Fundraising",
 		"pages-news-newdel-newdel": "Details",
@@ -84,8 +84,8 @@ export default {
 		donation_notes: 'Donation Dotes',
 		donation_notes1: '1.Please make sure the recharge address is the address starting with TRC20 type T.',
 		donation_notes2: '2.The minimum recharge amount is 5U. Less than the minimum recharge amount will not be credited and cannot be returned.',
-		donation_notes3: '3.Please do not solicit any non-USDT assets (chain type: TRC20) to the above address, otherwise the assets will not be recoverable.',
-		donation_notes4: '4.Your collection address will not change often, you can repeat your collection, if there is a change, a notification will be given on the collection page.',
+		donation_notes3: '3. Please do not recharge any non-USDT assets (chain type: TRC20) to the above address, otherwise the assets will not be recoverable.',
+		donation_notes4: '4. Your top-up address will not change frequently and you can repeat your top-up, if it does, you will be notified on the top-up page.',
 		donation_notes5: '5.Please make sure your computer, cell phone and browser are secure to prevent information leakage or tampering.',
 		donation_notes6: '6. Thank you for your good deeds, and may you have peace in your life.',
 		recharge_now: 'Recharge Now',
@@ -138,7 +138,7 @@ export default {
 		NFT_notes: 'NFT Withdrawal Notes',
 		//USDT_notes1: '1.Please make sure your address is the address beginning with TRC20 type T.',
 		NFT_notes2: '2.Withdrawal fee is 5%.',
-		NFT_notes3: '3.The minimum withdrawal amount is 1 million NFT. and cannot be returned.',
+		NFT_notes3: '3.The minimum withdrawal amount is 100,000 NFT，and cannot be returned.',
 		//USDT_notes4: '4.请务必确认目标地址是否存在且被激活，否则将会导致提币失败,且资产不可找回。',
 		//donation_notes5: '5.请务必确认您的电脑，手机及浏览器安全，防止信息泄露或被篡改。',
 		//USDT_notes6: '6.提交提现申请时间为每周四、周五，其他时间不允许提现。'	,
@@ -223,7 +223,7 @@ export default {
 		// title
 		"pages-login-login": "登录",
 		"pages-news-index": "交易",
-		"pages-zixun-index": "咨询",
+		"pages-zixun-index": "资讯",
 		"pages-index-tuandui-tuandui": "我的团队",
 		"pages-index-mujuanj-mujuanj": "募捐",
 		"pages-news-newdel-newdel": "详情",
@@ -297,8 +297,8 @@ export default {
 		donation_notes: '募捐注意事项',
 		donation_notes1: '1.请确认充币地址是TRC20型T开头的地址。',
 		donation_notes2: '2.最小募捐金额5U。小于最小充币金额的将不会到账且无法退回。',
-		donation_notes3: '3.请勿向上述地址募捐任何非USDT资产（链类型：TRC20），否则资产不可找回。',
-		donation_notes4: '4.您的募捐地址不会经常改变，可以重复募捐，如有改变，将会在募捐页面给予通知。',
+		donation_notes3: '3.请勿向上述地址充值任何非USDT资产（链类型：TRC20），否则资产不可找回。',
+		donation_notes4: '4.您的充值地址不会经常改变，可以重复充值，如有改变，将会在充值页面给予通知。',
 		donation_notes5: '5.请务必确认您的电脑，手机及浏览器安全，防止信息泄露或被篡改。',
 		donation_notes6: '6.感谢您的善举，愿您一生平安。',
 		recharge_now: '立即充值',
@@ -315,6 +315,10 @@ export default {
 		//donation_notes4: '4.您的募捐地址不会经常改变，可以重复募捐，如有改变，将会在募捐页面给予通知。',
 		//donation_notes5: '5.请务必确认您的电脑，手机及浏览器安全，防止信息泄露或被篡改。',
 		//recharge_now: '立即充值',
+		
+		
+		
+		
 
 		//我的团队
 		team_name: '的团队',
@@ -353,7 +357,7 @@ export default {
 		NFT_notes: 'NFT提现注意事项',
 		//USDT_notes1: '1.请确认您的地址是TRC20型T开头的地址。',
 		NFT_notes2: '2.提现手续费为5%。',
-		NFT_notes3: '3.最少提币金额100万NFT。小于最小提币金额的将不会到账且无法退回。',
+		NFT_notes3: '3.最少提币金额10万NFT，小于最小提币金额的将不会到账且无法退回。',
 		//USDT_notes4: '4.请务必确认目标地址是否存在且被激活，否则将会导致提币失败,且资产不可找回。',
 		//donation_notes5: '5.请务必确认您的电脑，手机及浏览器安全，防止信息泄露或被篡改。',
 		//USDT_notes6: '6.提交提现申请时间为每周四、周五，其他时间不允许提现。'	,

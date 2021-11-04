@@ -184,7 +184,12 @@
 						return false
 					}
 				}
-
+				
+				if (!this.formdata.code) {
+					this.$utils.toast(this._i18n.t('P_Code'))
+					return false
+				}
+				
 
 				if (this.formdata.password == "") {
 					this.$utils.toast(this._i18n.t('T_passsword'))
@@ -195,11 +200,15 @@
 					return false
 				}
 				
+				if(this.formdata.password != this.formdata.repeatPassword ){
+					this.$utils.toast(this._i18n.t('inconsistent'))
+					return false
+				}
+				
 				if (this.checked == false) {
 					this.$utils.toast(this._i18n.t('Read') + this._i18n.t('Agreement'), 'top');
 					return
 				}
-				
 				
 				let data = {
 					"user_mobile_phone": this.formdata.phone,
@@ -282,6 +291,7 @@
 		.uni-input {
 			font-size: 30upx;
 			padding: 7px 0;
+			width: 100%;
 		}
 	}
 

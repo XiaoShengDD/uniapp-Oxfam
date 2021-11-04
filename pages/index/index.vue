@@ -42,7 +42,7 @@
 			<view class="display_flex flex_start">
 				<image class="touxiang1" src="/static/img/s15.png" mode=""></image>
 				<view class="" style="line-height: 100upx;margin-left: 30upx;font-weight: 600;">
-					SHIBA募捐
+					SHIB募捐
 				</view>
 			</view>
 			<view class="display_flex flex_start">

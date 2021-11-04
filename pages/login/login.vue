@@ -49,6 +49,7 @@
 		},
 
 		onShow() {
+			this.shenfen = ""
 			if (uni.getStorageSync("language")) {
 				if (uni.getStorageSync("language") == "en-CN") {
 					this.lang = "English"

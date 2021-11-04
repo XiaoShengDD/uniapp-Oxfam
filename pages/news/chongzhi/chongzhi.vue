@@ -55,7 +55,6 @@
 			<view>{{ $t('donation_notes3') }}</view>
 			<view>{{ $t('donation_notes4') }}</view>
 			<view>{{ $t('donation_notes5') }}</view>
-			<view>{{ $t('donation_notes6') }}</view>
 			
 		</view>
 		<view class="btnss" @click="chongzhi">
