@@ -6,7 +6,7 @@ export default {
 		mine: "mine",
 
 		// title 
-		"pages-login-login": "login",
+		"pages-login-login": "Login",
 		"pages-news-index": "Trading",
 		"pages-zixun-index": "news",
 		"pages-index-tuandui-tuandui": "My Team",
@@ -187,8 +187,8 @@ export default {
 		"Trading_Password":"Trading password",
 		"Message_Board":"Message Board",
 		"Add_common_address":"Add Link",
-		"Log_out":"Log out",
-		"sure_Log_out":"Are you sure you want to log out of your current account?",
+		"Log_out":"Logout",
+		"sure_Log_out":"Are you sure you want to logout of your current account?",
 		"save":"Save",
 		"Change_transaction":"Change your trading password",
 		"Change_Login":"Change your login password",
@@ -200,6 +200,9 @@ export default {
 		"Added_successfully":"Add Success",
 		"transaction_password":"Please enter your trading password",
 		"add":"add",
+		
+		confirm:"confirm",
+		cancel:"cancel",
 		
 		"text1":"No access",
 		"text2":"选择图片",
@@ -420,6 +423,10 @@ export default {
 		"Not_available":"暂无",
 		"Added_successfully":"添加成功",
 		"transaction_password":"请输入交易密码",
+		confirm:"确定",
+		cancel:"取消",
+		
+		
 		
 		"add":"添加",
 		"text1":"您暂无此权益",

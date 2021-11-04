@@ -214,7 +214,7 @@
 				"pagePath": "pages/zixun/index",
 				"iconPath": "static/img/images/03.png",
 				"selectedIconPath": "static/img/images/3.png",
-				"text": "咨讯"
+				"text": "资讯"
 			},
 			{
 				"pagePath": "pages/mine/index",

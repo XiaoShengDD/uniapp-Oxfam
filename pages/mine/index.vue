@@ -88,6 +88,8 @@
 					title: _self._i18n.t('Log_out'),
 					content: _self._i18n.t('sure_Log_out'),
 					cancelColor: '#666',
+					cancelText:_self._i18n.t('cancel'),
+					confirmText:_self._i18n.t('confirm'),
 					confirmColor: '#0046AE',
 					success: (res) => {
 						if (res.confirm) {

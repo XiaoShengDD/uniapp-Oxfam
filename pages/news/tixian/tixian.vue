@@ -122,21 +122,21 @@
 				}
 				
 				if(this.Bid.coin_name == "USDT"){
-					if(this.value2 < 100){
+					if(this.value2 <= 100){
 						this.$utils.toast("最少提现金额100U");
 						return false
 					}		
 				}
 				
 				if(this.Bid.coin_name == "SHIB" || this.Bid.coin_name == "NFT"){
-					if(this.value2 < 1000000){
-						this.$utils.toast("最少提现金额10万");
+					if(this.value2 <= 1000000){
+						this.$utils.toast("最少提现金额100万");
 						return false
 					}	
 				}
 				
 				if(this.Bid.coin_name == "NFT"){
-					if(this.value2 < 100000){
+					if(this.value2 <= 100000){
 						this.$utils.toast("最少提现金额10万");
 						return false
 					}	
