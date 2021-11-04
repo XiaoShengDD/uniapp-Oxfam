@@ -10,9 +10,9 @@
 				{{ $t('Add_common_address') }}
 			</view>
 		</view>
-		<u-popup v-model="show" mode="center" width="500rpx" height="400upx" @change="radioGroupChange">
+		<u-popup v-model="show" mode="center" width="500rpx" height="400upx">
 			<u-radio-group v-model="value" width="100%">
-				<u-radio active-color="#0046AE" @change="radioChange" v-for="(item, index) in list" :key="index" :name="item.withdrawal_address_value">
+				<u-radio active-color="#0046AE" @change="radioChange(item)" v-for="(item, index) in list" :key="index" :name="item.withdrawal_address_id">
 					<view style="word-wrap:break-word!important;width: 400upx;" class="over_one">{{item.withdrawal_address_value}}</view>
 				</u-radio>
 			</u-radio-group>
@@ -47,7 +47,7 @@
 			<view>4，请务必确认目标地址是否存在且被激活，否则将会导致提币失败,且资产不可找回。 </view>
 			<view>5.请务必确认您的电脑，手机及浏览器安全，防止信息泄露或被篡改。</view>
 		</view> -->
-		<view class="zhuyi" v-if="Bid.coin_name == 'SHIBI'">
+		<view class="zhuyi" v-if="Bid.coin_name == 'SHIB'">
 			<view>{{ $t('SHIB_notes') }}</view>
 			<view>{{ $t('SHIB_notes1') }}</view>
 			<view>{{ $t('SHIB_notes2') }}</view>
@@ -128,7 +128,7 @@
 					}		
 				}
 				
-				if(this.Bid.coin_name == "SHIBI" || this.Bid.coin_name == "NFT"){
+				if(this.Bid.coin_name == "SHIB" || this.Bid.coin_name == "NFT"){
 					if(this.value2 < 1000000){
 						this.$utils.toast("最少提现金额100万");
 						return false
@@ -186,20 +186,20 @@
 			},
 
 
-			radioChange(e) {
-				if (this.list.length == 1) {
-					this.value1 = this.list[0].withdrawal_address_value
-				}
+			radioChange(item) {
+				// if (this.list.length == 1) {
+				// 	this.value1 = this.list[0].withdrawal_address_value
+				// }
 				this.show = false
-				this.value1 = e
+				this.value1 = item.withdrawal_address_value
 			},
-			radioGroupChange(e) {
-				if (this.list.length == 1) {
-					this.value1 = this.list[0].withdrawal_address_value
-				}
-				this.show = false
-				this.value1 = e
-			},
+			// radioGroupChange(e) {
+			// 	if (this.list.length == 1) {
+			// 		this.value1 = this.list[0].withdrawal_address_value
+			// 	}
+			// 	this.show = false
+			// 	this.value1 = e
+			// },
 			// 初始化方法
 			async withdrawaladdressadd() {
 				let data = {

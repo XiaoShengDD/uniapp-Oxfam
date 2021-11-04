@@ -51,7 +51,7 @@
 		
 			<view>{{ $t('recharge_notes') }}</view>
 			<view>{{ $t('donation_notes1') }}</view>
-			<view>{{ $t('donation_notes2') }}</view>
+			<view>{{ $t('donation_notes22') }}</view>
 			<view>{{ $t('donation_notes3') }}</view>
 			<view>{{ $t('donation_notes4') }}</view>
 			<view>{{ $t('donation_notes5') }}</view>

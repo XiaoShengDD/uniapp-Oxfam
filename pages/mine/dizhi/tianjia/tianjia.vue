@@ -5,16 +5,16 @@
 			<view class="login-phone-main">
 				<view class="login-phone-from display_flex align_item">
 					<view class="phone">{{ $t('usual_address') }}：</view>
-					<input class="login-phone-from-input" type="text"  :placeholder="$t('text3')" v-model="password" />
+					<input class="login-phone-from-input" type="text" :placeholder="$t('text3')" v-model="password" />
 				</view>
 			</view>
 			<view class="login-phone-btns" @click="userdetail">
 				<view class="login-phone-btn">{{ $t('save') }}</view>
 			</view>
 		</view>
-		
+
 	</view>
-	
+
 </template>
 
 <script>
@@ -23,36 +23,44 @@
 			return {
 				password: '',
 				title: '',
-				transactionPasswordFlag:0
+				transactionPasswordFlag: 0,
+				flag: true
 			};
 		},
 		onLoad() {
 			// transactionPasswordFlag 1的话是设置了，0是没设置
 		},
-		
-		
+
+
 		methods: {
 			// 用户详情
 			async userdetail() {
-				let data = {
-					user_id: uni.getStorageSync('rescodeUserInfo').user_id,
-					withdrawal_address_value:this.password
+				if (this.flag) {
+					this.flag = false
+					let data = {
+						user_id: uni.getStorageSync('rescodeUserInfo').user_id,
+						withdrawal_address_value: this.password
+					}
+					const res = await this.$appserve.withdrawaladdressadd(data);
+
+					if (res) {
+						this.flag = true
+					}
+
+					this.$utils.toast(this._i18n.t('Added_successfully'));
+					setTimeout(() => {
+						uni.navigateBack({
+							delta: 1
+						})
+					}, 1000)
 				}
-				const res = await this.$appserve.withdrawaladdressadd(data);
-				this.$utils.toast(this._i18n.t('Added_successfully'));
-				setTimeout(() => {
-					uni.navigateBack({
-						delta:1
-					})
-				}, 1000)
-			
 			},
-			
-			
+
+
 			// 初始化方法
 			async resetPassword() {
-				
-				if (this.password =='') {
+
+				if (this.password == '') {
 					this.$utils.toast(this._i18n.t('transaction_password'), 'top');
 					return
 				}
@@ -66,9 +74,9 @@
 					this.userdetail()
 				}, 1000)
 			},
-			gengai(){
+			gengai() {
 				uni.redirectTo({
-					url:'/pages/mine/ChangePassword/ChangePassword?openId=1'
+					url: '/pages/mine/ChangePassword/ChangePassword?openId=1'
 				})
 			}
 		}
@@ -79,6 +87,7 @@
 	page {
 		background: #ffffff !important;
 	}
+
 	.slot-content {
 		height: 450rpx;
 		padding: 0 30rpx;
@@ -86,21 +95,24 @@
 		margin: 30rpx 0;
 	}
 </style>
-<style scoped >
-	.btnss{
+<style scoped>
+	.btnss {
 		width: 80%;
 		margin: 60upx auto;
 	}
-	.bosxImg{
+
+	.bosxImg {
 		width: 200upx;
 		height: 200upx;
-		
+
 	}
-	.boxs{
+
+	.boxs {
 		width: 100%;
 		text-align: center;
 		padding: 30upx 0;
 	}
+
 	.login_phone {
 		width: 100%;
 		background: #ffffff !important;
@@ -138,7 +150,7 @@
 		font-weight: 400;
 		color: #FFFFFF;
 		line-height: 36upx;
-		background-color:#0046AE;
+		background-color: #0046AE;
 		padding: 10upx 20upx;
 	}
 
@@ -151,7 +163,7 @@
 		margin: 206rpx auto 0;
 		height: 80rpx;
 		width: 584rpx;
-		background: linear-gradient(10deg,#0046AE 0%,#0046AE 100%);
+		background: linear-gradient(10deg, #0046AE 0%, #0046AE 100%);
 		border-radius: 44upx;
 		color: #ffffff;
 		font-size: 34upx;
