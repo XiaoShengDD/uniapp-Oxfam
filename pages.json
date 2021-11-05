@@ -27,7 +27,7 @@
 		{
 			"path": "pages/zixun/index",
 			"style": {
-				"navigationBarTitleText": "咨讯",
+				"navigationBarTitleText": "资讯",
 				"app-plus": {
 					"titleNView": true
 				}

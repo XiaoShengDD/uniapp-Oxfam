@@ -112,7 +112,7 @@
 				}
 				
 				if (this.value1 == "") {
-					this.$utils.toast('请输入地址')
+					this.$utils.toast(this._i18n.t('text4'))
 					return false
 				}
 				
@@ -122,29 +122,29 @@
 				}
 				
 				if(this.Bid.coin_name == "USDT"){
-					if(this.value2 <= 100){
-						this.$utils.toast("最少提现金额100U");
+					if(this.value2 < 100){
+						this.$utils.toast(this._i18n.t('text5'));
 						return false
 					}		
 				}
 				
-				if(this.Bid.coin_name == "SHIB" || this.Bid.coin_name == "NFT"){
-					if(this.value2 <= 1000000){
-						this.$utils.toast("最少提现金额100万");
+				if(this.Bid.coin_name == "SHIB"){
+					if(this.value2 < 1000000){
+						this.$utils.toast(this._i18n.t('text6'));
 						return false
 					}	
 				}
 				
 				if(this.Bid.coin_name == "NFT"){
-					if(this.value2 <= 100000){
-						this.$utils.toast("最少提现金额10万");
+					if(this.value2 < 100000){
+						this.$utils.toast(this._i18n.t('text7'));
 						return false
 					}	
 				}
 				
 				
-				if (this.value2 == "") {
-					this.$utils.toast('请输入交易密码')
+				if (this.value3 == "") {
+					this.$utils.toast(this._i18n.t('transaction_password'))
 					return false
 				}
 				let data = {
@@ -156,7 +156,7 @@
 					"user_transaction_password": this.value3
 				}
 				const res = await this.$appserve.withdrawal(data);
-				this.$utils.toast("交易成功");
+				this.$utils.toast(this._i18n.t('text9'));
 				setTimeout(() => {
 					uni.navigateBack({
 						delta:1
@@ -171,13 +171,14 @@
 				let data = {
 					user_id: uni.getStorageSync('rescodeUserInfo').user_id
 				}
+				var that = this
 				const res = await this.$appserve.userdetail(data);
 				if (res.data.transactionPasswordFlag == 0) {
 					uni.showModal({
-						title: '提示',
-						content: '为了账户安全，请先设置交易密码',
+						title: that._i18n.t('Tips'),
+						content: that._i18n.t('text10'),
 						showCancel: false,
-						confirmText: "去设置",
+						confirmText: that._i18n.t('text11'),
 						success: function(res) {
 							if (res.confirm) {
 								uni.navigateTo({

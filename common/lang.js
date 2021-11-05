@@ -169,7 +169,7 @@ export default {
 		"Donation":"Donation",
 		"Breakdown":"Details",
 		"Uploaded":"Uploaded",
-		"amount":"amount",
+		"amount":"Please enter the amount",
 		"Minimum":"Minimum donation amount",
 		"vouchers":"Please upload proof of donation",
 		"Successful_transaction":"Successful transaction",
@@ -207,13 +207,16 @@ export default {
 		"text1":"No access",
 		"text2":"选择图片",
 		"text3":"Please enter a link",
-		"text4":"text",
-		"text5":"text",
-		"text6":"text",
-		"text7":"text",
-		"text8":"text",
-		"text9":"text",
-		"text10":"text",
+		
+		
+		"text4":"Please enter your address",
+		"text5":"Minimum Cash Withdrawal 100U",
+		"text6":"Minimum Cash Withdrawal 1,000,000",
+		"text7":"Minimum Cash Withdrawal 100,000",
+		"text9":"Successful transaction",
+		
+		"text10":"For account security, please set a transaction password first",
+		"text11":"Go to Settings",
 
 	},
 	"en-CN": {
@@ -432,13 +435,22 @@ export default {
 		"text1":"您暂无此权益",
 		"text2":"选择图片",
 		"text3":"请输入常用地址",
-		"text4":"text",
-		"text5":"text",
-		"text6":"text",
-		"text7":"text",
-		"text8":"text",
-		"text9":"text",
-		"text10":"text",
+		
+		
+		"text4":"请输入地址",
+		"text5":"最少提现金额100U",
+		"text6":"最少提现金额100万",
+		"text7":"最少提现金额10万",
+		"text9":"交易成功",
+		
+		
+		"text10":"为了账户安全，请先设置交易密码",
+		"text11":"去设置",
+		
+		
+		"text12":"text",
+		"text13":"text",
+		"text14":"text",
 		
 
 
